@@ -78,8 +78,8 @@ const FloatingMenu = ({
 
   return (
     <>
-      {/* 왼쪽 섹션 네비게이션 */}
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50">
+      {/* 왼쪽 섹션 네비게이션 - 모바일에서 숨김 */}
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden md:block">
         <div className="flex flex-col gap-4">
           {sectionMenuItems.map((item, index) => (
             <button
@@ -156,7 +156,7 @@ const FloatingMenu = ({
           </button>
           <button
             onClick={onScrollToTop}
-            className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all md:hidden"
           >
             <Image
               src={'/assets/icons/up.svg'}

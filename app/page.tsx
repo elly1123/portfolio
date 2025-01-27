@@ -5,8 +5,7 @@ import AboutSection from './components/AboutSection';
 import BackgroundOverlay from './components/BackgroundOverlay';
 import FloatingMenu from './components/FloatingMenu';
 import PortfolioSection from './components/PortfolioSection';
-import ProfileSection from './components/ProfileSection';
-import ScrollArrow from './components/ScrollArrow';
+import ProfileSection from './components/MainSection';
 import TypingAnimation from './components/TypingAnimation';
 import { useAnimationState } from './hooks/useAnimationState';
 import { useScroll } from './hooks/useScroll';
@@ -48,14 +47,19 @@ export default function Home() {
           onSectionClick={handleSectionClick}
         />
       )}
-      <main className="relative w-full h-screen overflow-hidden text-[#0d0d0d]">
+      <main className="relative w-full h-screen md:overflow-hidden overflow-auto text-[#0d0d0d]">
         <div
-          className="h-screen transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateY(-${currentSection * 100}%)` }}
+          className="transition-transform duration-700 ease-in-out md:h-screen"
+          style={{
+            transform:
+              window?.innerWidth >= 768
+                ? `translateY(-${currentSection * 100}vh)`
+                : 'none',
+          }}
         >
           {/* 메인 섹션 */}
           <section
-            className={`w-full h-screen flex items-center justify-center ${
+            className={`relative w-full h-screen flex items-center justify-center overflow-hidden ${
               showProfile
                 ? 'bg-[url("/assets/images/abstract.jpg")] bg-cover bg-opacity-100'
                 : 'bg-[#F9FBFC]'
@@ -67,16 +71,15 @@ export default function Home() {
               showProfile={showProfile}
             />
             <ProfileSection showProfile={showProfile} />
-            {showProfile && <ScrollArrow onClick={scrollToPortfolio} />}
           </section>
 
           {/* About Section */}
-          <section className="w-full h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
+          <section className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
             <AboutSection />
           </section>
 
           {/* 포트폴리오 섹션 */}
-          <section className="w-full h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
+          <section className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
             <PortfolioSection />
           </section>
         </div>

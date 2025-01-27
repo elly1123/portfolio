@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const AboutSection = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="w-full max-w-6xl mx-auto p-8 pt-20 md:py-24 min-h-screen">
       {/* About Me */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8">About Me</h2>
@@ -28,7 +28,7 @@ const AboutSection = () => {
       </div>
 
       {/* Skills & Tools */}
-      <div>
+      <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8">Skills & Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-neutral-200 h-16 rounded flex items-center justify-between px-6">
