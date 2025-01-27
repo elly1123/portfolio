@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
+import AboutSection from './components/AboutSection';
 import BackgroundOverlay from './components/BackgroundOverlay';
 import FloatingMenu from './components/FloatingMenu';
 import PortfolioSection from './components/PortfolioSection';
@@ -9,68 +10,73 @@ import ScrollArrow from './components/ScrollArrow';
 import TypingAnimation from './components/TypingAnimation';
 import { useAnimationState } from './hooks/useAnimationState';
 import { useScroll } from './hooks/useScroll';
-import { getHeroSectionStyle, getPortfolioSectionStyle } from './utils/styles';
 
 export default function Home() {
-  // 애니메이션 상태 관리
   const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
-
-  // 스크롤 진행도 관리
-  const { scrollProgress } = useScroll({
+  const { currentSection, scrollToSection } = useScroll({
     isAnimationComplete,
-    onScrollProgress: (progress) => {
-      if (progress > 0.5) {
+    onScrollProgress: (section) => {
+      if (section > 0) {
         setShowPortfolio(true);
       }
     },
   });
 
-  // 포트폴리오 섹션으로 스크롤
   const scrollToPortfolio = useCallback(() => {
     if (!showProfile) return;
+    scrollToSection(1);
+  }, [showProfile, scrollToSection]);
 
-    window.scrollTo({
-      top: window.innerHeight * 1.5,
-      behavior: 'smooth',
-    });
-  }, [showProfile]);
+  const handleScrollToTop = useCallback(() => {
+    scrollToSection(0);
+  }, [scrollToSection]);
+
+  const handleSectionClick = useCallback((sectionIndex: number) => {
+    scrollToSection(sectionIndex);
+  }, [scrollToSection]);
 
   return (
     <>
-      {/* 상단 플로팅 메뉴 */}
-      {showProfile && <FloatingMenu />}
-
-      <main
-        className={`relative w-full h-[300vh] bg-gray-200 ${
-          !isAnimationComplete ? 'overflow-hidden' : ''
-        }`}
-      >
-        {/* 메인 섹션 */}
-        <section
-          className={`fixed top-0 left-0 w-full h-screen flex items-center justify-center transition-all duration-1000 ${
-            showProfile
-              ? 'bg-[url("/assets/images/abstract.jpg")] bg-cover bg-opacity-100'
-              : 'bg-[#F9FBFC]'
-          } text-black`}
-          style={getHeroSectionStyle(scrollProgress)}
+      {showProfile && (
+        <FloatingMenu 
+          onScrollToTop={handleScrollToTop}
+          currentSection={currentSection}
+          onSectionClick={handleSectionClick}
+        />
+      )}
+      <main className="relative w-full h-screen overflow-hidden text-[#0d0d0d]">
+        <div
+          className="h-screen transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateY(-${currentSection * 100}%)` }}
         >
-          <BackgroundOverlay showProfile={showProfile} />
-          <TypingAnimation
-            isAnimationComplete={isAnimationComplete}
-            showProfile={showProfile}
-          />
-          <ProfileSection showProfile={showProfile} />
-          {showProfile && <ScrollArrow onClick={scrollToPortfolio} />}
-        </section>
+          {/* 메인 섹션 */}
+          <section
+            className={`w-full h-screen flex items-center justify-center ${
+              showProfile
+                ? 'bg-[url("/assets/images/abstract.jpg")] bg-cover bg-opacity-100'
+                : 'bg-[#F9FBFC]'
+            }`}
+          >
+            <BackgroundOverlay showProfile={showProfile} />
+            <TypingAnimation
+              isAnimationComplete={isAnimationComplete}
+              showProfile={showProfile}
+            />
+            <ProfileSection showProfile={showProfile} />
+            {showProfile && <ScrollArrow onClick={scrollToPortfolio} />}
+          </section>
 
-        {/* 포트폴리오 섹션 */}
-        <section
-          className="fixed top-0 left-0 w-full h-screen"
-          style={getPortfolioSectionStyle(scrollProgress)}
-        >
-          <PortfolioSection />
-        </section>
+          {/* About Section */}
+          <section className="w-full h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
+            <AboutSection />
+          </section>
+
+          {/* 포트폴리오 섹션 */}
+          <section className="w-full h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
+            <PortfolioSection />
+          </section>
+        </div>
       </main>
     </>
   );

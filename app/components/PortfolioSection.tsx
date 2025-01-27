@@ -22,7 +22,7 @@ const PortfolioSection = () => {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="min-h-screen bg-[#0d0d0d] p-8"
+      className="min-h-screen p-8"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {portfolioItems.map((item) => (
