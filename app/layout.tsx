@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Han Baek - Portfolio',
     description: 'Problem Solver Han',
-    url: 'https://hanbaek-8ocuewx95-myungsangbaeks-projects.vercel.app',
+    url: '',
     siteName: 'Han Baek Portfolio',
     images: [
       {
-        url: '/assets/images/abstract.jpg',
+        url: 'public/assets/images/han.png',
         width: 1200,
         height: 630,
         alt: 'Portfolio Preview',
