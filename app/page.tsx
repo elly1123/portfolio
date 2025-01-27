@@ -13,7 +13,7 @@ import { getHeroSectionStyle, getPortfolioSectionStyle } from './utils/styles';
 
 export default function Home() {
   // 애니메이션 상태 관리
-  const { isAnimationComplete, showProfile, showPortfolio, setShowPortfolio } =
+  const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
 
   // 스크롤 진행도 관리

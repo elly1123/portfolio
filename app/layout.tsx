@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'Han Baek Portfolio',
     images: [
       {
-        url: 'public/assets/images/han.png',
+        url: '/assets/images/han.png',
         width: 1200,
         height: 630,
         alt: 'Portfolio Preview',
