@@ -15,7 +15,7 @@ export default function TypingAnimation({
     <div
       className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 ${
         isAnimationComplete
-          ? 'scale-75 translate-y-[-400px]'
+          ? 'scale-75 translate-y-[-350px]'
           : 'animate-fade-in'
       }`}
     >
@@ -24,14 +24,14 @@ export default function TypingAnimation({
         wrapper="span"
         speed={20}
         cursor={false}
-        className="text-3xl sm:text-4xl md:text-6xl font-extrabold"
+        className="text-2xl sm:text-3xl md:text-5xl font-extrabold"
       />
       {showProfile && (
         <TypeAnimation
           sequence={['고객중심사고로 문제를 해결하는 백건희입니다.', 1000]}
           wrapper="span"
           speed={20}
-          className="text-sm sm:text-base md:text-3xl font-medium"
+          className="text-sm sm:text-base md:text-2xl font-medium"
         />
       )}
     </div>
