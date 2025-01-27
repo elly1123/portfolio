@@ -31,7 +31,7 @@ export default function TypingAnimation({
           sequence={['고객중심사고로 문제를 해결하는 백건희입니다.', 1000]}
           wrapper="span"
           speed={20}
-          className="text-sm sm:text-base md:text-2xl font-medium"
+          className="text-sm sm:text-base md:text-2xl font-medium p-2"
         />
       )}
     </div>
