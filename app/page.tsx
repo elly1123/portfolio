@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import AboutSection from './components/AboutSection';
 import BackgroundOverlay from './components/BackgroundOverlay';
 import FloatingMenu from './components/FloatingMenu';
@@ -11,6 +11,7 @@ import { useAnimationState } from './hooks/useAnimationState';
 import { useScroll } from './hooks/useScroll';
 
 export default function Home() {
+  const [isDesktop, setIsDesktop] = useState(false);
   const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
   const { currentSection, scrollToSection } = useScroll({
@@ -21,6 +22,15 @@ export default function Home() {
       }
     },
   });
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 768);
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleScrollToTop = useCallback(() => {
     scrollToSection(0);
@@ -46,10 +56,9 @@ export default function Home() {
         <div
           className="transition-transform duration-700 ease-in-out md:h-screen"
           style={{
-            transform:
-              window?.innerWidth >= 768
-                ? `translateY(-${currentSection * 100}vh)`
-                : 'none',
+            transform: isDesktop
+              ? `translateY(-${currentSection * 100}vh)`
+              : 'none',
           }}
         >
           {/* 메인 섹션 */}
