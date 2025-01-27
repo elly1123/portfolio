@@ -32,14 +32,17 @@ export default function Home() {
     scrollToSection(0);
   }, [scrollToSection]);
 
-  const handleSectionClick = useCallback((sectionIndex: number) => {
-    scrollToSection(sectionIndex);
-  }, [scrollToSection]);
+  const handleSectionClick = useCallback(
+    (sectionIndex: number) => {
+      scrollToSection(sectionIndex);
+    },
+    [scrollToSection]
+  );
 
   return (
     <>
       {showProfile && (
-        <FloatingMenu 
+        <FloatingMenu
           onScrollToTop={handleScrollToTop}
           currentSection={currentSection}
           onSectionClick={handleSectionClick}
