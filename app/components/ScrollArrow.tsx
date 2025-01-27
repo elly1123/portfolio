@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface ScrollArrowProps {
   onClick: () => void;
 }
@@ -11,29 +13,14 @@ const ScrollArrow = ({ onClick }: ScrollArrowProps) => {
       style={{ opacity: 1 }}
       onClick={onClick}
     >
-      <Arrow />
-      <Arrow />
+      <Image
+        src={'/assets/icons/down.svg'}
+        width={48}
+        height={48}
+        alt={'down'}
+      />
     </div>
   );
 };
 
 export default ScrollArrow;
-
-function Arrow() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="18"
-      viewBox="0 0 28 17"
-      fill="none"
-    >
-      <path
-        d="M26 2L14 14L2 2"
-        stroke="#fff"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
