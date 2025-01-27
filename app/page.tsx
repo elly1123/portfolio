@@ -4,8 +4,8 @@ import { useCallback } from 'react';
 import AboutSection from './components/AboutSection';
 import BackgroundOverlay from './components/BackgroundOverlay';
 import FloatingMenu from './components/FloatingMenu';
-import PortfolioSection from './components/PortfolioSection';
 import ProfileSection from './components/MainSection';
+import PortfolioSection from './components/PortfolioSection';
 import TypingAnimation from './components/TypingAnimation';
 import { useAnimationState } from './hooks/useAnimationState';
 import { useScroll } from './hooks/useScroll';
@@ -21,11 +21,6 @@ export default function Home() {
       }
     },
   });
-
-  const scrollToPortfolio = useCallback(() => {
-    if (!showProfile) return;
-    scrollToSection(1);
-  }, [showProfile, scrollToSection]);
 
   const handleScrollToTop = useCallback(() => {
     scrollToSection(0);
