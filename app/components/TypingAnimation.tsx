@@ -7,7 +7,10 @@ interface TypingAnimationProps {
   showProfile: boolean;
 }
 
-export default function TypingAnimation({ isAnimationComplete, showProfile }: TypingAnimationProps) {
+export default function TypingAnimation({
+  isAnimationComplete,
+  showProfile,
+}: TypingAnimationProps) {
   return (
     <div
       className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 ${
@@ -33,4 +36,4 @@ export default function TypingAnimation({ isAnimationComplete, showProfile }: Ty
       )}
     </div>
   );
-} 
+}

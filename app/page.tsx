@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import BackgroundOverlay from './components/BackgroundOverlay';
+import FloatingMenu from './components/FloatingMenu';
 import ProfileSection from './components/ProfileSection';
 import ScrollArrow from './components/ScrollArrow';
 import TypingAnimation from './components/TypingAnimation';
@@ -35,6 +36,7 @@ export default function Home() {
       />
       <ProfileSection showProfile={showProfile} />
       {showProfile && <ScrollArrow />}
+      {showProfile && <FloatingMenu />}
     </div>
   );
 }
