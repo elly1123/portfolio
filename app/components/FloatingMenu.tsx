@@ -56,7 +56,7 @@ export default function FloatingMenu() {
                 key={index}
                 className="relative group flex items-center justify-end"
               >
-                <span className="absolute right-[calc(100%+0.75rem)] hidden group-hover:block bg-white px-3 py-1 rounded-lg shadow-lg whitespace-nowrap">
+                <span className="absolute right-[calc(100%+0.75rem)] hidden group-hover:block bg-white px-3 py-1 rounded-lg shadow-lg whitespace-nowrap text-[#0d0d0d]">
                   {item.title}
                 </span>
                 <button
@@ -79,36 +79,31 @@ export default function FloatingMenu() {
           className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
         >
           {isOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Image
+              src={'/assets/icons/close.svg'}
+              width={24}
+              height={24}
+              alt={'close'}
+            />
           ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
+            <Image
+              src={'/assets/icons/menu.svg'}
+              width={24}
+              height={24}
+              alt={'menu'}
+            />
           )}
+        </button>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
+        >
+          <Image
+            src={'/assets/icons/up.svg'}
+            width={24}
+            height={24}
+            alt={'up'}
+          />
         </button>
       </div>
     </div>
