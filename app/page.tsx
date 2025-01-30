@@ -14,7 +14,7 @@ export default function Home() {
   const [isDesktop, setIsDesktop] = useState(false);
   const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
-  const { currentSection, scrollToSection } = useScroll({
+  const { currentSection, scrollToSection, isScrolling } = useScroll({
     isAnimationComplete,
     onScrollProgress: (section) => {
       if (section > 0) {
@@ -31,6 +31,14 @@ export default function Home() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    if (isScrolling) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isScrolling]);
 
   const handleScrollToTop = useCallback(() => {
     scrollToSection(0);
