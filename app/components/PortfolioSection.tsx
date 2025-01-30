@@ -268,7 +268,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
           {loadingItems ? (
             // 로딩 상태 표시
             <div className="col-span-2 flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
             </div>
           ) : (
             <AnimatePresence>
@@ -434,7 +434,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
               <div className="h-[calc(100%-200px)] overflow-y-auto p-8 bg-white">
                 {loading ? (
                   <div className="flex items-center justify-center h-full">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
                   </div>
                 ) : notionContent?.blocks &&
                   Array.isArray(notionContent.blocks) ? (
