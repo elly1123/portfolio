@@ -296,8 +296,33 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
                       />
                     </div>
                     <div className="p-6">
+                      {/* 프로젝트 타입과 기간 */}
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="px-2 py-1 text-sm bg-black text-white rounded">
+                          {item.type}
+                        </span>
+                        {item.period && (
+                          <span className="text-sm text-gray-400">
+                            {item.period}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* 제목과 설명 */}
                       <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-gray-400">{item.description}</p>
+                      <p className="text-gray-400 mb-3">{item.description}</p>
+
+                      {/* 태그 */}
+                      <div className="flex flex-wrap gap-2">
+                        {item.tags?.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-1 text-sm bg-black text-white rounded"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
                     {/* 호버 시 나타나는 오버레이 */}
