@@ -73,10 +73,10 @@ const AboutSection = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-8 pt-10 md:py-12 min-h-screen">
+    <div className="w-full max-w-6xl mx-auto p-8 md:py-16 min-h-screen">
       {/* About Me */}
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold mb-8">About Me</h2>
+      <div className="mb-10">
+        {/* <h2 className="text-3xl font-bold mb-8">About Me</h2> */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="w-32 h-32 relative">
             <Image
@@ -97,7 +97,7 @@ const AboutSection = () => {
       </div>
 
       {/* Values & Perspective */}
-      <div className="mb-16">
+      <div className="mb-10">
         <h2 className="text-3xl font-bold mb-8">Values & Perspective</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
@@ -116,7 +116,7 @@ const AboutSection = () => {
       </div>
 
       {/* Skills & Tools */}
-      <div className="mb-16">
+      <div className="mb-16 bg">
         <h2 className="text-3xl font-bold mb-8">Skills & Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-neutral-200 p-6 rounded">

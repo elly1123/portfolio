@@ -28,6 +28,10 @@ const sectionMenuItems: SectionMenuItem[] = [
     title: 'Portfolio',
     sectionIndex: 2,
   },
+  {
+    title: 'Thank You',
+    sectionIndex: 3,
+  },
 ];
 
 const menuItems: MenuItem[] = [
@@ -87,18 +91,26 @@ const FloatingMenu = ({
               onClick={() => onSectionClick(item.sectionIndex)}
               className={`flex items-center gap-3 group ${
                 currentSection === item.sectionIndex
-                  ? 'text-white'
+                  ? currentSection === 0
+                    ? 'text-[#0d0d0d]'
+                    : 'text-white'
                   : 'text-gray-400'
               }`}
             >
               <div
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   currentSection === item.sectionIndex
-                    ? 'bg-white scale-150'
+                    ? currentSection === 0
+                      ? 'bg-[#0d0d0d] scale-150'
+                      : 'bg-white scale-150'
                     : 'bg-gray-400 group-hover:bg-white'
                 }`}
               />
-              <span className="text-sm font-medium transition-all duration-300 group-hover:text-white">
+              <span
+                className={`text-sm font-medium transition-all duration-300 group-hover:${
+                  currentSection === item.sectionIndex ? '' : 'text-white'
+                }`}
+              >
                 {item.title}
               </span>
             </button>

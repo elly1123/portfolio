@@ -18,15 +18,23 @@ export const useScroll = ({
 
   const scrollToSection = useCallback(
     (sectionIndex: number) => {
-      if (isScrolling) return;
-      setIsScrolling(true);
+      // 메뉴 클릭 시에는 isScrolling 체크를 하지 않음
       setCurrentSection(sectionIndex);
 
+      // ID를 기반으로 스크롤
+      const sectionId = `section-${sectionIndex}`;
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // 스크롤 애니메이션 동안만 isScrolling을 true로 설정
+      setIsScrolling(true);
       setTimeout(() => {
         setIsScrolling(false);
       }, 1000);
     },
-    [isScrolling]
+    [] // isScrolling 의존성 제거
   );
 
   useEffect(() => {
@@ -44,9 +52,15 @@ export const useScroll = ({
       if (nextSection !== currentSection) {
         setCurrentSection(nextSection);
         onScrollProgress?.(nextSection);
+
+        // ID를 기반으로 스크롤
+        const sectionId = `section-${nextSection}`;
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
 
-      // 애니메이션이 완료될 때까지 기다림
       setTimeout(() => {
         setIsScrolling(false);
       }, 1000);

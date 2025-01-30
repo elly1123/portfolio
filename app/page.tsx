@@ -61,16 +61,10 @@ export default function Home() {
         />
       )}
       <main className="relative w-full h-screen md:overflow-hidden overflow-auto text-[#0d0d0d]">
-        <div
-          className="transition-transform duration-700 ease-in-out md:h-screen"
-          style={{
-            transform: isDesktop
-              ? `translateY(-${currentSection * 100}vh)`
-              : 'none',
-          }}
-        >
+        <div className="transition-transform duration-700 ease-in-out">
           {/* 메인 섹션 */}
           <section
+            id="section-0"
             className={`relative w-full h-screen flex items-center justify-center overflow-hidden ${
               showProfile
                 ? 'bg-[url("/assets/images/abstract.jpg")] bg-cover bg-opacity-100'
@@ -86,12 +80,18 @@ export default function Home() {
           </section>
 
           {/* About Section */}
-          <section className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
+          <section
+            id="section-1"
+            className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white"
+          >
             <AboutSection />
           </section>
 
           {/* 포트폴리오 섹션 */}
-          <section className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white">
+          <section
+            id="section-2"
+            className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white"
+          >
             <PortfolioSection />
           </section>
         </div>
