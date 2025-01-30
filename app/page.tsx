@@ -14,6 +14,7 @@ export default function Home() {
   const [isDesktop, setIsDesktop] = useState(false);
   const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { currentSection, scrollToSection, isScrolling } = useScroll({
     isAnimationComplete,
     onScrollProgress: (section) => {
@@ -21,6 +22,7 @@ export default function Home() {
         setShowPortfolio(true);
       }
     },
+    isModalOpen,
   });
 
   useEffect(() => {
@@ -92,7 +94,7 @@ export default function Home() {
             id="section-2"
             className="relative w-full min-h-screen bg-[#1C1B1B] text-white overflow-y-auto"
           >
-            <PortfolioSection />
+            <PortfolioSection onModalChange={setIsModalOpen} />
           </section>
         </div>
       </main>

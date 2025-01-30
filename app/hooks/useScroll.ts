@@ -6,12 +6,14 @@ import { useCallback, useEffect, useState } from 'react';
 interface UseScrollProps {
   isAnimationComplete: boolean; // 애니메이션 완료 여부를 나타냄
   onScrollProgress?: (section: number) => void; // 스크롤 진행 상태를 알려주는 콜백 함수 (선택적)
+  isModalOpen?: boolean; // 모달 상태를 받는 prop 추가
 }
 
 // useScroll 커스텀 훅 정의
 export const useScroll = ({
   isAnimationComplete, // 애니메이션 완료 여부를 받음
   onScrollProgress, // 진행 상태 콜백을 받음
+  isModalOpen = false, // 기본값 false
 }: UseScrollProps) => {
   const [currentSection, setCurrentSection] = useState(0); // 현재 섹션 인덱스 상태
   const [isScrolling, setIsScrolling] = useState(false);
@@ -38,7 +40,7 @@ export const useScroll = ({
   );
 
   useEffect(() => {
-    if (!isAnimationComplete) return;
+    if (!isAnimationComplete || isModalOpen) return; // 모달이 열려있으면 스크롤 이벤트를 처리하지 않음
 
     const handleWheel = (e: WheelEvent) => {
       // 포트폴리오 섹션(section-2)에서는 스크롤 위치를 체크
@@ -120,7 +122,13 @@ export const useScroll = ({
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [currentSection, isAnimationComplete, isScrolling, onScrollProgress]);
+  }, [
+    currentSection,
+    isAnimationComplete,
+    isScrolling,
+    onScrollProgress,
+    isModalOpen,
+  ]); // isModalOpen 의존성 추가
 
   // 현재 섹션 상태와 섹션 이동 함수 반환
   return {

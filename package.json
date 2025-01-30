@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "@types/lodash": "^4.17.15",
     "framer-motion": "^12.0.5",
     "lodash": "^4.17.21",
