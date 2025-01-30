@@ -37,6 +37,28 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
     null
   );
   const [loading, setLoading] = useState(false);
+  const [portfolioItems, setPortfolioItems] = useState<Project[]>([]);
+  const [loadingItems, setLoadingItems] = useState(true);
+
+  // 포트폴리오 아이템 가져오기
+  useEffect(() => {
+    const fetchPortfolioItems = async () => {
+      try {
+        const response = await fetch('/api/notion'); // 우리의 API 라우트 사용
+        const data = await response.json();
+        console.log(data.portfolioItems);
+        if (data.portfolioItems) {
+          setPortfolioItems(data.portfolioItems);
+        }
+      } catch (error) {
+        console.error('Failed to fetch portfolio items:', error);
+      } finally {
+        setLoadingItems(false);
+      }
+    };
+
+    fetchPortfolioItems();
+  }, []);
 
   useEffect(() => {
     const fetchNotionContent = async () => {
@@ -45,10 +67,9 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
       setLoading(true);
       try {
         const response = await fetch(
-          `/api/notion?pageId=${selectedProject.notionPageId}`
+          `/api/notion/page?pageId=${selectedProject.notionPageId}`
         );
         const data = await response.json();
-        console.log('Notion API Response:', data); // 응답 데이터 확인
         if (data.blocks && Array.isArray(data.blocks)) {
           setNotionContent({ blocks: data.blocks });
         } else {
@@ -82,64 +103,6 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
       onModalChange?.(false);
     };
   }, [selectedProject, onModalChange]);
-
-  const portfolioItems: Project[] = [
-    {
-      id: 1,
-      title: 'GS파워 실적효율 관리 프로젝트',
-      description: 'GS파워 실적효율 관리 프로젝트',
-      image: '/assets/images/gspower.svg',
-      type: 'Company',
-      notionPageId: '18bca87a528080239e51eed087bc8efc',
-      tags: ['Flutter', 'Python + Flask', 'Notion', 'AWS'],
-      period: '2024.03 - 2024.08',
-    },
-    {
-      id: 2,
-      title: '강남은 지루해',
-      description: '중간약속장소 추천 서비스',
-      image: '/assets/images/nomoregangnam.svg',
-      type: 'Side',
-      notionPageId: '페이지ID입력',
-    },
-    {
-      id: 3,
-      title: 'GS파워 실적효율 관리 프로젝트',
-      description: 'GS파워 실적효율 관리 프로젝트',
-      image: '/assets/images/gspower.svg',
-      type: 'Company',
-      notionPageId: '페이지ID입력',
-    },
-    {
-      id: 4,
-      title: '강남은 지루해',
-      description: '중간약속장소 추천 서비스',
-      image: '/assets/images/nomoregangnam.svg',
-      type: 'Side',
-      notionPageId: '페이지ID입력',
-    },
-    {
-      id: 5,
-      title: 'GS파워 실적효율 관리 프로젝트',
-      description: 'GS파워 실적효율 관리 프로젝트',
-      image: '/assets/images/gspower.svg',
-      type: 'Company',
-      notionPageId: '페이지ID입력',
-    },
-    {
-      id: 6,
-      title: '강남은 지루해',
-      description: '중간약속장소 추천 서비스',
-      image: '/assets/images/nomoregangnam.svg',
-      type: 'Side',
-      notionPageId: '페이지ID입력',
-    },
-    // 더 많은 프로젝트 추가 가능
-  ];
-
-  const filteredItems = portfolioItems.filter(
-    (item) => activeTab === 'All' || item.type === activeTab
-  );
 
   const renderBlock = (block: NotionBlock) => {
     try {
@@ -302,43 +265,54 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
           layout
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 pb-8"
         >
-          <AnimatePresence>
-            {filteredItems.map((item) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="bg-[#2A2A2A] rounded-lg overflow-hidden cursor-pointer group relative"
-              >
-                <div className="aspect-video bg-neutral-100 flex items-center justify-center">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={200}
-                    height={100}
-                    className="object-contain"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-gray-400">{item.description}</p>
-                </div>
-
-                {/* 호버 시 나타나는 오버레이 */}
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <button
-                    onClick={() => setSelectedProject(item)}
-                    className="px-6 py-2 border border-white text-white rounded-lg hover:bg-gray-200 hover:text-black transition-colors"
+          {loadingItems ? (
+            // 로딩 상태 표시
+            <div className="col-span-2 flex justify-center items-center h-64">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+            </div>
+          ) : (
+            <AnimatePresence>
+              {portfolioItems
+                .filter(
+                  (item) => activeTab === 'All' || item.type === activeTab
+                )
+                .map((item) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-[#2A2A2A] rounded-lg overflow-hidden cursor-pointer group relative"
                   >
-                    자세히 보기
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                    <div className="aspect-video bg-neutral-100 flex items-center justify-center">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={200}
+                        height={100}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                      <p className="text-gray-400">{item.description}</p>
+                    </div>
+
+                    {/* 호버 시 나타나는 오버레이 */}
+                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <button
+                        onClick={() => setSelectedProject(item)}
+                        className="px-6 py-2 border border-white text-white rounded-lg hover:bg-gray-200 hover:text-black transition-colors"
+                      >
+                        자세히 보기
+                      </button>
+                    </div>
+                  </motion.div>
+                ))}
+            </AnimatePresence>
+          )}
         </motion.div>
       </div>
 
@@ -391,7 +365,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
                       <Image
                         src={selectedProject.image}
                         alt={selectedProject.title}
-                        width={200}
+                        width={100}
                         height={100}
                         className="object-contain"
                       />

@@ -3,27 +3,70 @@ import { NextResponse } from 'next/server';
 
 const notion = new Client({
   auth: process.env.NOTION_SECRET_KEY,
+  notionVersion: '2022-06-28', // Notion API 버전 명시
 });
 
+const DATABASE_ID = process.env.NOTION_DATABASE_ID;
+
+// DB에서 포트폴리오 목록을 가져오는 API
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const pageId = searchParams.get('pageId');
-
-  if (!pageId) {
-    return NextResponse.json({ error: 'Page ID is required' }, { status: 400 });
-  }
-
   try {
-    const blocks = await notion.blocks.children.list({
-      block_id: pageId,
+    const response = await fetch(
+      `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.NOTION_SECRET_KEY}`,
+          'Notion-Version': '2022-06-28',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          page_size: 100,
+          sorts: [
+            {
+              timestamp: 'created_time',
+              direction: 'descending',
+            },
+          ],
+        }),
+      }
+    );
+
+    const data = await response.json();
+    console.log('Notion API Response:', JSON.stringify(data, null, 2)); // 응답 데이터 확인
+
+    if (!data.results || !Array.isArray(data.results)) {
+      throw new Error('Invalid response format');
+    }
+
+    // 노션 DB 결과를 포트폴리오 아이템 형식으로 변환
+    const portfolioItems = data.results.map((page: any, index: number) => {
+      // 각 속성에 대한 안전한 접근
+      const properties = page.properties || {};
+
+      return {
+        id: index + 1,
+        title: properties.title?.title?.[0]?.text.content || 'Untitled',
+        description: properties.description?.rich_text?.[0]?.text.content || '',
+        image:
+          properties.image?.files?.[0]?.file?.url ||
+          '/assets/images/default.png',
+        type: properties.type?.select?.name || 'Side',
+        notionPageId:
+          properties.notionPageId?.rich_text?.[0]?.text.content || page.id,
+        tags: properties.tags?.multi_select?.map((tag: any) => tag.name) || [],
+        period: properties.period?.rich_text?.[0]?.text.content || '',
+      };
     });
 
-    return NextResponse.json({ blocks: blocks.results });
+    return NextResponse.json({ portfolioItems });
   } catch (error) {
-    console.error('Notion API Error:', error);
+    console.error('Failed to fetch database:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch page', details: error },
+      { error: 'Failed to fetch database', details: error },
       { status: 500 }
     );
   }
 }
+
+// POST 메서드는 삭제하고 page/route.ts에서만 페이지 내용을 처리하도록 함
