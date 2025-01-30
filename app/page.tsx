@@ -90,7 +90,7 @@ export default function Home() {
           {/* 포트폴리오 섹션 */}
           <section
             id="section-2"
-            className="relative w-full min-h-screen flex items-center justify-center bg-[#1C1B1B] text-white"
+            className="relative w-full min-h-screen bg-[#1C1B1B] text-white overflow-y-auto"
           >
             <PortfolioSection />
           </section>

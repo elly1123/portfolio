@@ -41,6 +41,55 @@ export const useScroll = ({
     if (!isAnimationComplete) return;
 
     const handleWheel = (e: WheelEvent) => {
+      // 포트폴리오 섹션(section-2)에서는 스크롤 위치를 체크
+      const portfolioSection = document.getElementById('section-2');
+      if (
+        portfolioSection &&
+        (portfolioSection.contains(e.target as Node) || currentSection === 2)
+      ) {
+        const element = e.target as Element;
+        const scrollableElement = portfolioSection.querySelector(
+          'div'
+        ) as HTMLElement;
+
+        // 스크롤이 맨 위에서 위로 스크롤하거나, 맨 아래에서 아래로 스크롤할 때만 섹션 전환
+        if (
+          (scrollableElement.scrollTop === 0 && e.deltaY < 0) ||
+          (scrollableElement.scrollHeight - scrollableElement.scrollTop ===
+            scrollableElement.clientHeight &&
+            e.deltaY > 0)
+        ) {
+          e.preventDefault();
+
+          if (isScrolling) return;
+          setIsScrolling(true);
+
+          const direction = e.deltaY > 0 ? 1 : -1;
+          const nextSection = Math.max(
+            0,
+            Math.min(2, currentSection + direction)
+          );
+
+          if (nextSection !== currentSection) {
+            setCurrentSection(nextSection);
+            onScrollProgress?.(nextSection);
+
+            const sectionId = `section-${nextSection}`;
+            const nextElement = document.getElementById(sectionId);
+            if (nextElement) {
+              nextElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+
+          setTimeout(() => {
+            setIsScrolling(false);
+          }, 1000);
+
+          return;
+        }
+        return; // 포트폴리오 섹션 내부에서는 자연스러운 스크롤 허용
+      }
+
       e.preventDefault();
 
       if (isScrolling) return;
