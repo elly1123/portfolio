@@ -94,7 +94,7 @@ const FloatingMenu = ({
                   ? currentSection === 0
                     ? 'text-[#0d0d0d]'
                     : 'text-white'
-                  : 'text-gray-400'
+                  : 'text-gray-500'
               }`}
             >
               <div
@@ -103,12 +103,14 @@ const FloatingMenu = ({
                     ? currentSection === 0
                       ? 'bg-[#0d0d0d] scale-150'
                       : 'bg-white scale-150'
-                    : 'bg-gray-400 group-hover:bg-white'
+                    : 'bg-gray-500 group-hover:bg-white'
                 }`}
               />
               <span
-                className={`text-sm font-medium transition-all duration-300 group-hover:${
-                  currentSection === item.sectionIndex ? '' : 'text-white'
+                className={`text-sm font-medium transition-all duration-300 ${
+                  currentSection === item.sectionIndex
+                    ? ''
+                    : 'group-hover:text-white'
                 }`}
               >
                 {item.title}

@@ -6,6 +6,7 @@ import BackgroundOverlay from './components/BackgroundOverlay';
 import FloatingMenu from './components/FloatingMenu';
 import ProfileSection from './components/MainSection';
 import PortfolioSection from './components/PortfolioSection';
+import ThankYouSection from './components/ThankYouSection';
 import TypingAnimation from './components/TypingAnimation';
 import { useAnimationState } from './hooks/useAnimationState';
 import { useScroll } from './hooks/useScroll';
@@ -95,6 +96,14 @@ export default function Home() {
             className="relative w-full min-h-screen bg-[#1C1B1B] text-white overflow-y-auto"
           >
             <PortfolioSection onModalChange={setIsModalOpen} />
+          </section>
+
+          {/* Thank You 섹션 */}
+          <section
+            id="section-3"
+            className="relative w-full min-h-screen bg-[#1C1B1B] text-white overflow-y-auto"
+          >
+            <ThankYouSection />
           </section>
         </div>
       </main>

@@ -39,8 +39,8 @@ const AboutSection = () => {
     { icon: 'typescript.svg', label: '🙏 애자일 전도사' },
     { icon: 'typescript.svg', label: '🤼‍♀️ 집단지성' },
     { icon: 'typescript.svg', label: '💪 회복탄력성' },
-    { icon: 'typescript.svg', label: '🤖 시민을 위한 개발자' },
-    { icon: 'typescript.svg', label: '😄 즐기는 자' },
+    { icon: 'typescript.svg', label: '💻 시민을 위한 개발자' },
+    { icon: 'typescript.svg', label: '🤖 AI리터러시' },
     { icon: 'typescript.svg', label: '👀 겸손과 메타인지' },
     // 더 많은 뱃지 추가 가능
   ];
@@ -51,23 +51,27 @@ const AboutSection = () => {
       { icon: 'typescript.svg', label: 'TypeScript' },
       { icon: 'python.svg', label: 'Python' },
       { icon: 'flutter.svg', label: 'Flutter' },
+      { icon: 'lowcode.svg', label: 'LowCode' },
     ],
     infra: [
       { icon: 'aws.svg', label: 'AWS' },
       { icon: 'docker.svg', label: 'Docker' },
-      { icon: 'mysql.svg', label: 'MySQL' },
+      { icon: 'mysql.svg', label: 'Database' },
+      { icon: 'kubernetes.svg', label: 'Kubernetes' },
       { icon: 'github.svg', label: 'CI/CD' },
     ],
     tools: [
       { icon: 'gpt.svg', label: 'Prompt' },
       { icon: 'figma.svg', label: 'Figma' },
       { icon: 'jira.svg', label: 'Jira' },
+      { icon: 'make.svg', label: 'Automation' },
       { icon: 'data.svg', label: 'Analytics' },
     ],
     softSkills: [
       { icon: 'followership.svg', label: '팔로워쉽' },
       { icon: 'teamwork.svg', label: '팀워크 및 협업' },
       { icon: 'problemsolving.svg', label: '문제해결능력' },
+      { icon: 'leadership.svg', label: '리더쉽' },
       { icon: 'communication.svg', label: '의사소통' },
     ],
   };
@@ -104,7 +108,7 @@ const AboutSection = () => {
             "Connecting the dots"
           </div>
           <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
-            "항상 최선을 다하자"
+            "매 순간 최선을 다하자"
           </div>
           <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
             "고민과 행동의 간극을 줄이자"
