@@ -50,7 +50,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
-        className="fixed inset-20 bg-[#2A2A2A] z-50 rounded-lg overflow-hidden"
+        className="fixed md:inset-20 inset-0 bg-[#2A2A2A] z-50 rounded-lg overflow-hidden"
       >
         <div className="sticky top-0 z-10 bg-[#2A2A2A] border-b border-gray-700">
           <button
@@ -72,9 +72,9 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             </svg>
           </button>
 
-          <div className="p-8">
-            <div className="flex gap-8">
-              <div className="w-64 h-40 bg-neutral-100 rounded-lg flex items-center justify-center">
+          <div className="p-4 md:p-8">
+            <div className="flex flex-col md:flex-row md:gap-8 gap-4">
+              <div className="w-full md:w-64 h-40 bg-neutral-100 rounded-lg flex items-center justify-center">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -86,7 +86,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </div>
 
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className="px-2 py-1 text-sm bg-black text-white rounded">
                     {project.type}
                   </span>
@@ -96,8 +96,12 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                     </span>
                   )}
                 </div>
-                <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                <p className="text-gray-400 mb-4">{project.description}</p>
+                <h2 className="text-xl md:text-2xl font-bold mb-2">
+                  {project.title}
+                </h2>
+                <p className="text-gray-400 mb-4 text-sm md:text-base">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags?.map((tag) => (
                     <span
@@ -113,7 +117,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           </div>
         </div>
 
-        <div className="h-[calc(100%-200px)] overflow-y-auto p-8 bg-white">
+        <div className="h-[calc(100%-200px)] md:h-[calc(100%-200px)] overflow-y-auto p-4 md:p-8 bg-white">
           {loading ? (
             <div className="flex items-center justify-center h-full">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
