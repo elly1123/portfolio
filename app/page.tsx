@@ -12,7 +12,7 @@ import { useAnimationState } from './hooks/useAnimationState';
 import { useScroll } from './hooks/useScroll';
 
 export default function Home() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [, setIsDesktop] = useState(false);
   const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
   const [isModalOpen, setIsModalOpen] = useState(false);

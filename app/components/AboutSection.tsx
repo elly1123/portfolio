@@ -1,19 +1,11 @@
 import Image from 'next/image';
 
 interface BadgeProps {
-  icon: string;
   label: string;
 }
 
-const Badge = ({ icon, label }: BadgeProps) => (
+const Badge = ({ label }: BadgeProps) => (
   <div className="flex items-center bg-[#2D2D2D] rounded-full px-4 py-2 text-sm">
-    {/* <Image
-      src={`/assets/icons/${icon}`}
-      alt={label}
-      width={20}
-      height={20}
-      className="mr-2"
-    /> */}
     <span>{label}</span>
   </div>
 );

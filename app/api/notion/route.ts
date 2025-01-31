@@ -1,15 +1,9 @@
-import { Client } from '@notionhq/client';
 import { NextResponse } from 'next/server';
-
-const notion = new Client({
-  auth: process.env.NOTION_SECRET_KEY,
-  notionVersion: '2022-06-28', // Notion API 버전 명시
-});
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
 // DB에서 포트폴리오 목록을 가져오는 API
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const response = await fetch(
       `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
@@ -52,9 +46,11 @@ export async function GET(request: Request) {
           properties.image?.files?.[0]?.file?.url ||
           '/assets/images/default.png',
         type: properties.type?.select?.name || 'Side',
-        notionPageId:
-          properties.notionPageId?.rich_text?.[0]?.text.content || page.id,
-        tags: properties.tags?.multi_select?.map((tag: any) => tag.name) || [],
+        notionPageId: properties.notionPageId?.rich_text?.[0]?.text.content,
+        tags:
+          properties.tags?.multi_select?.map(
+            (tag: { name: string }) => tag.name
+          ) || [],
         period: properties.period?.rich_text?.[0]?.text.content || '',
       };
     });
