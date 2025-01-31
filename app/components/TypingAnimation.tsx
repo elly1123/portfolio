@@ -13,16 +13,16 @@ export default function TypingAnimation({
 }: TypingAnimationProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 pt-20 ${
+      className={`flex flex-col items-center justify-center transition-all duration-700 relative z-10 ${
         isAnimationComplete
-          ? 'scale-75 translate-y-[-350px]'
+          ? 'scale-75 translate-y-[-300px]'
           : 'animate-fade-in'
       }`}
     >
       <TypeAnimation
         sequence={['Problem Solver Han.', 1000]}
         wrapper="span"
-        speed={20}
+        speed={40}
         cursor={false}
         className="text-3xl sm:text-4xl md:text-5xl font-extrabold"
       />
@@ -30,8 +30,8 @@ export default function TypingAnimation({
         <TypeAnimation
           sequence={['고객중심사고로 문제를 해결하는 백건희입니다.', 1000]}
           wrapper="span"
-          speed={20}
-          className="text-lg sm:text-base md:text-2xl font-medium p-2"
+          speed={40}
+          className="text-md sm:text-base md:text-2xl font-medium p-2"
         />
       )}
     </div>

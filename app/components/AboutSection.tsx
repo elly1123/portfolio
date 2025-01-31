@@ -79,12 +79,11 @@ const AboutSection = () => {
     <div className="w-full max-w-6xl mx-auto p-8 pt-20 md:py-16 min-h-screen">
       {/* About Me */}
       <div className="mb-10">
-        {/* <h2 className="text-3xl font-bold mb-8">About Me</h2> */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          <div className="w-32 h-32 relative">
+          <div className="w-20 h-20 relative">
             <Image
               src="/assets/images/debear.jpeg"
-              alt="Profile Emoji"
+              alt="Profile"
               sizes="(max-width: 768px) 100vw, 50vw"
               fill
               className="object-contain"
@@ -102,18 +101,18 @@ const AboutSection = () => {
 
       {/* Values & Perspective */}
       <div className="mb-10">
-        <h2 className="text-3xl font-bold mb-8">Values & Perspective</h2>
+        <h2 className="text-2xl font-bold mb-4">Values & Perspective</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
+          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
             "Connecting the dots"
           </div>
-          <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
+          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
             "매 순간 최선을 다하자"
           </div>
-          <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
+          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
             "고민과 행동의 간극을 줄이자"
           </div>
-          <div className="bg-neutral-200 h-16 rounded flex items-center justify-center text-[#2D2D2D] text-lg font-bold italic">
+          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
             "수신제가치국평천하"
           </div>
         </div>
@@ -121,11 +120,11 @@ const AboutSection = () => {
 
       {/* Skills & Tools - 마진 바텀 조정 */}
       <div className="mb-8 md:mb-16">
-        <h2 className="text-3xl font-bold mb-8">Skills & Tools</h2>
+        <h2 className="text-2xl font-bold mb-4">Skills & Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {/* Skill 섹션들의 간격 및 패딩 조정 */}
-          <div className="bg-neutral-200 p-4 md:p-6 rounded">
-            <span className="text-black font-bold mb-4 md:mb-6 block">
+          <div className="bg-neutral-200 p-4 md:p-4 rounded">
+            <span className="text-black font-bold mb-4 md:mb-4 block">
               Stack
             </span>
             <div className="flex justify-between items-center gap-2 md:gap-4">
@@ -134,8 +133,8 @@ const AboutSection = () => {
               ))}
             </div>
           </div>
-          <div className="bg-neutral-200 p-4 md:p-6 rounded">
-            <span className="text-black font-bold mb-4 md:mb-6 block">
+          <div className="bg-neutral-200 p-4 md:p-4 rounded">
+            <span className="text-black font-bold mb-4 md:mb-4 block">
               Infra
             </span>
             <div className="flex justify-between items-center gap-2 md:gap-4">
@@ -144,8 +143,8 @@ const AboutSection = () => {
               ))}
             </div>
           </div>
-          <div className="bg-neutral-200 p-4 md:p-6 rounded">
-            <span className="text-black font-bold mb-4 md:mb-6 block">
+          <div className="bg-neutral-200 p-4 md:p-4 rounded">
+            <span className="text-black font-bold mb-4 md:mb-4 block">
               Tool
             </span>
             <div className="flex justify-between items-center gap-2 md:gap-4">
@@ -154,8 +153,8 @@ const AboutSection = () => {
               ))}
             </div>
           </div>
-          <div className="bg-neutral-200 p-4 md:p-6 rounded">
-            <span className="text-black font-bold mb-4 md:mb-6 block">
+          <div className="bg-neutral-200 p-4 md:p-4 rounded">
+            <span className="text-black font-bold mb-4 md:mb-4 block">
               Soft Skill
             </span>
             <div className="flex justify-between items-center gap-2 md:gap-4">

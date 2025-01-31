@@ -15,7 +15,7 @@ export default function MainSection({ showProfile }: MainSectionProps) {
           : 'opacity-0 translate-y-[100px] pointer-events-none'
       }`}
     >
-      <div className="relative w-[480px] h-[700px]">
+      <div className="relative w-[360px] h-[540px]">
         <Image
           src="/assets/images/han.png"
           alt="Profile"
