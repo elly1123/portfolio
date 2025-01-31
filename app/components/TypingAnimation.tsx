@@ -13,7 +13,7 @@ export default function TypingAnimation({
 }: TypingAnimationProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 ${
+      className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 pt-20 ${
         isAnimationComplete
           ? 'scale-75 translate-y-[-350px]'
           : 'animate-fade-in'
