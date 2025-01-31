@@ -49,16 +49,19 @@ export const useScroll = ({
         portfolioSection &&
         (portfolioSection.contains(e.target as Node) || currentSection === 2)
       ) {
-        const element = e.target as Element;
-        const scrollableElement = portfolioSection.querySelector(
-          'div'
-        ) as HTMLElement;
+        const portfolioContainer = document.getElementById(
+          'portfolio-container'
+        );
+        if (!portfolioContainer) return;
 
         // 스크롤이 맨 위에서 위로 스크롤하거나, 맨 아래에서 아래로 스크롤할 때만 섹션 전환
         if (
-          (scrollableElement.scrollTop === 0 && e.deltaY < 0) ||
-          (scrollableElement.scrollHeight - scrollableElement.scrollTop ===
-            scrollableElement.clientHeight &&
+          (portfolioContainer.scrollTop === 0 && e.deltaY < 0) ||
+          (Math.abs(
+            portfolioContainer.scrollHeight -
+              portfolioContainer.scrollTop -
+              portfolioContainer.clientHeight
+          ) < 1 &&
             e.deltaY > 0)
         ) {
           e.preventDefault();
@@ -69,7 +72,7 @@ export const useScroll = ({
           const direction = e.deltaY > 0 ? 1 : -1;
           const nextSection = Math.max(
             0,
-            Math.min(2, currentSection + direction)
+            Math.min(3, currentSection + direction)
           );
 
           if (nextSection !== currentSection) {
@@ -89,7 +92,7 @@ export const useScroll = ({
 
           return;
         }
-        return; // 포트폴리오 섹션 내부에서는 자연스러운 스크롤 허용
+        return;
       }
 
       e.preventDefault();
@@ -98,7 +101,7 @@ export const useScroll = ({
       setIsScrolling(true);
 
       const direction = e.deltaY > 0 ? 1 : -1;
-      const nextSection = Math.max(0, Math.min(2, currentSection + direction));
+      const nextSection = Math.max(0, Math.min(3, currentSection + direction));
 
       if (nextSection !== currentSection) {
         setCurrentSection(nextSection);

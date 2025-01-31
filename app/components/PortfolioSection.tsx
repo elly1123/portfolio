@@ -52,7 +52,10 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
 
   return (
     <>
-      <div className="w-full h-screen overflow-y-auto py-20 p-8">
+      <div
+        className="w-full h-screen overflow-y-auto py-20 p-8"
+        id="portfolio-container"
+      >
         <TabMenu activeTab={activeTab} onTabChange={setActiveTab} />
 
         <motion.div
