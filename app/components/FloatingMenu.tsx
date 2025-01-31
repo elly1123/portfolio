@@ -121,7 +121,7 @@ const FloatingMenu = ({
       </div>
 
       {/* 기존 오른쪽 플로팅 메뉴 */}
-      <div className="fixed bottom-8 right-8 z-50">
+      <div className="fixed bottom-8 right-4 md:right-8 z-50">
         <div className="flex flex-col gap-2">
           {isOpen && (
             <>
@@ -134,13 +134,14 @@ const FloatingMenu = ({
                     {item.title}
                   </span>
                   <button
-                    className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
+                    className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
                     onClick={() => window.open(item.url, '_blank')}
                   >
                     <Image
                       src={item.icon}
                       width={24}
                       height={24}
+                      className="w-4 h-4 md:w-6 md:h-6"
                       alt={item.alt}
                     />
                   </button>
@@ -150,13 +151,14 @@ const FloatingMenu = ({
           )}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
           >
             {isOpen ? (
               <Image
                 src={'/assets/icons/close.svg'}
                 width={24}
                 height={24}
+                className="w-4 h-4 md:w-6 md:h-6"
                 alt={'close'}
               />
             ) : (
@@ -164,18 +166,20 @@ const FloatingMenu = ({
                 src={'/assets/icons/menu.svg'}
                 width={24}
                 height={24}
+                className="w-4 h-4 md:w-6 md:h-6"
                 alt={'menu'}
               />
             )}
           </button>
           <button
             onClick={onScrollToTop}
-            className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all md:hidden"
+            className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all md:hidden"
           >
             <Image
               src={'/assets/icons/up.svg'}
               width={24}
               height={24}
+              className="w-4 h-4 md:w-6 md:h-6"
               alt={'up'}
             />
           </button>
