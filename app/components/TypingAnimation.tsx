@@ -15,7 +15,7 @@ export default function TypingAnimation({
     <div
       className={`flex flex-col items-center justify-center transition-all duration-700 relative z-10 ${
         isAnimationComplete
-          ? 'scale-75 translate-y-[-300px]'
+          ? 'scale-75 translate-y-[-200px] md:translate-y-[-300px]'
           : 'animate-fade-in'
       }`}
     >

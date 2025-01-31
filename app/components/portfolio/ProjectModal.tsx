@@ -87,7 +87,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="px-2 py-1 text-sm bg-black text-white rounded">
+                  <span className="px-2 py-1 text-sm text-white rounded bg-gray-600">
                     {project.type}
                   </span>
                   {project.period && (

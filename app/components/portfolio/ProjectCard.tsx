@@ -29,7 +29,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
       </div>
       <div className="p-6">
         <div className="flex items-center gap-2 mb-2">
-          <span className="px-2 py-1 text-sm bg-black text-white rounded">
+          <span className="px-2 py-1 text-sm bg-gray-600 text-white rounded">
             {project.type}
           </span>
           {project.period && (

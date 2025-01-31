@@ -83,7 +83,7 @@ const FloatingMenu = ({
   return (
     <>
       {/* 왼쪽 섹션 네비게이션 - 모바일에서 숨김 */}
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden md:block">
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 max-[1360px]:hidden">
         <div className="flex flex-col gap-4">
           {sectionMenuItems.map((item, index) => (
             <button
