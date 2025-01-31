@@ -39,3 +39,15 @@ body {
   background: var(--background);
   font-family: var(--font-spoqa);
 }
+
+
+/* 웹킷 브라우저용 스크롤바 숨기기 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 모든 브라우저에 적용되는 스크롤바 숨기기 */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
