@@ -78,9 +78,10 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={100}
+                  width={200}
                   height={100}
-                  className="object-contain"
+                  className="w-[100px] h-[100px] object-contain"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 

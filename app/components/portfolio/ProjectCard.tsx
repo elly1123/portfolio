@@ -22,8 +22,9 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
           src={project.image}
           alt={project.title}
           width={200}
-          height={100}
-          className="object-contain"
+          height={200}
+          className="w-[200px] h-[200px] object-contain"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
       <div className="p-6">

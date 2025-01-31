@@ -11,6 +11,7 @@ const ThankYouSection = () => {
         alt="Marble Background"
         fill
         className="absolute inset-0 object-cover opacity-50"
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
 
       {/* 콘텐츠 */}

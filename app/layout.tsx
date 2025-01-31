@@ -34,7 +34,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={`${spoqaHanSans.variable}`}>{children}</body>
+      <body
+        className={`${spoqaHanSans.variable} spoqahansans_d39bb874-module__biuP4G__variable`}
+        suppressHydrationWarning={true}
+      >
+        {children}
+      </body>
     </html>
   );
 }

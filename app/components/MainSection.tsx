@@ -15,13 +15,15 @@ export default function MainSection({ showProfile }: MainSectionProps) {
           : 'opacity-0 translate-y-[100px] pointer-events-none'
       }`}
     >
-      <Image
-        src="/assets/images/han.png"
-        width={480}
-        height={780}
-        alt="Profile"
-        className="transition-transform duration-1000 max-w-full h-auto"
-      />
+      <div className="relative w-[480px] h-[700px]">
+        <Image
+          src="/assets/images/han.png"
+          alt="Profile"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-contain transition-transform duration-1000"
+        />
+      </div>
     </div>
   );
 }
