@@ -59,6 +59,13 @@ const ThankYouSection = () => {
           >
             Feedback
           </Link>
+          <Link
+            target="_blank"
+            href="https://debeletter.stibee.com"
+            className="border-b-2 border-black pb-1 hover:opacity-70 hover:text-black transition-opacity duration-300 text-gray-600 "
+          >
+            Newsletter
+          </Link>
         </motion.div>
 
         {/* 카피라이트 */}

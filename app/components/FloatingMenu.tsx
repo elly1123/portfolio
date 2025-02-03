@@ -36,7 +36,7 @@ const sectionMenuItems: SectionMenuItem[] = [
 
 const menuItems: MenuItem[] = [
   {
-    title: 'Bio',
+    title: 'Bio Link',
     icon: '/assets/icons/link.svg',
     url: 'https://bit.ly/m/han_baek',
     alt: 'Bio Link',
@@ -44,7 +44,7 @@ const menuItems: MenuItem[] = [
   {
     title: 'Medium',
     icon: '/assets/icons/medium.svg',
-    url: 'https://medium.com/@developer._.baer',
+    url: 'hhttps://medium.com/@han.baek',
     alt: 'Medium',
   },
   {
