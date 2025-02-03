@@ -18,23 +18,12 @@ Welcome to my personal portfolio! This project showcases my work and skills, dyn
 | Tailwind CSS  | v3.4.1   |
 
 ### BE
-Integration with Notion API
+- Integration with Notion API
 
-
-## ⚒ Maintainer
-
-| Name | Contact               |
-| ---- | --------------------- |
-| Han  | hanbaek1643@gmail.com |
 
 ## 🔗 Link
-
-### Production 
-Deployed it on `Vercel`<br/>
 [KunHee Portfolio](https://kunhee.info)
 
-### UX/UI
-[Figma](https://www.figma.com/file/o48AdQtgi5UGvFuilW46mp/Favorite-Medium?node-id=0%3A1&t=p5ztXGO28Vj5XNbk-1)
 
 ## 🚀 Getting Started
 
@@ -65,4 +54,4 @@ NOTION_DATABASE_ID=your_notion_database_id
 - This project is licensed under the MIT License.
 
 ## 📬 Contact
-- Email: your.email@example.com
+- Email: hanbaek1643@gmail.com
