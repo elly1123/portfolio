@@ -23,7 +23,13 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
         const response = await fetch('/api/notion');
         const data = await response.json();
         if (data.portfolioItems) {
-          setPortfolioItems(data.portfolioItems);
+          const sortedItems = data.portfolioItems.sort(
+            (a: Project, b: Project) => {
+              if (!a.period || !b.period) return 0;
+              return b.period.localeCompare(a.period);
+            }
+          );
+          setPortfolioItems(sortedItems);
         }
       } catch (error) {
         console.error('Failed to fetch portfolio items:', error);
