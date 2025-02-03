@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 My Portfolio
 
-## Getting Started
+Welcome to my personal portfolio! This project showcases my work and skills, dynamically pulling content from a Notion database.
 
-First, run the development server:
+## 🚀 Features
+- Dynamic Content: Seamless integration with Notion DB for real-time updates.
+- Responsive Design: Optimized for various devices using Tailwind CSS.
+- Fast Performance: Built with Next.js for efficient server-side rendering.
+
+## 💻 Tech Stack
+
+### FE
+
+| Name          | Version  |
+| ------------- | -------- |
+| Next.js       | v15.1.6  |
+| React.js      | v19.0.0  |
+| Tailwind CSS  | v3.4.1   |
+
+### BE
+Integration with Notion API
+
+
+## ⚒ Maintainer
+
+| Name | Contact               |
+| ---- | --------------------- |
+| Han  | hanbaek1643@gmail.com |
+
+## 🔗 Link
+
+### Production 
+Deployed it on `Vercel`<br/>
+[KunHee Portfolio](https://kunhee.info)
+
+### UX/UI
+[Figma](https://www.figma.com/file/o48AdQtgi5UGvFuilW46mp/Favorite-Medium?node-id=0%3A1&t=p5ztXGO28Vj5XNbk-1)
+
+## 🚀 Getting Started
 
 ```bash
+#Install Module
+npm install
+
+#Start in Local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+#Build for Production
+yarn build
+
+# Set Up Environment Variables:
+NOTION_SECRET_KEY=your_notion_api_key
+NOTION_DATABASE_ID=your_notion_database_id
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📄 Usage
+- Adding New Projects:
+  - Update your Notion database with new entries.
+  - The portfolio will automatically reflect these changes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🤝 Contributing
+- Contributions are welcome! Please open an issue or submit a pull request for any improvements.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📜 License
+- This project is licensed under the MIT License.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact
+- Email: your.email@example.com
