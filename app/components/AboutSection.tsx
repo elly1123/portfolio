@@ -121,7 +121,10 @@ const AboutSection = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-8 pt-20 md:py-16 min-h-screen">
+    <div
+      id="about-container"
+      className="w-full max-w-6xl mx-auto p-8 pt-20 md:py-16 min-h-screen overflow-y-auto max-h-screen"
+    >
       {/* About Me */}
       <div className="mb-10">
         <div className="flex flex-col items-center gap-8">
