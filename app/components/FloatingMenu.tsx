@@ -1,5 +1,8 @@
 'use client';
 
+import fireWorkAnimationData from '@/public/assets/animations/firework.json';
+import giftAnimationData from '@/public/assets/animations/gift.json';
+import Lottie from 'lottie-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -79,9 +82,33 @@ const FloatingMenu = ({
   onSectionClick,
 }: FloatingMenuProps) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [showFirework, setShowFirework] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen);
+    setShowFirework(true);
+    // 애니메이션이 끝나면 상태를 다시 false로 설정
+    setTimeout(() => setShowFirework(false), 2000); // 로티 애니메이션 길이에 맞게 시간 조정
+  };
+
+  // 컴포넌트 내부에서 로티 애니메이션 추가
+  const menuAnimation = fireWorkAnimationData;
+  const giftAnimation = giftAnimationData;
 
   return (
     <>
+      {/* 폭죽 애니메이션 */}
+      {showFirework && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+          <Lottie
+            animationData={fireWorkAnimationData}
+            loop={false}
+            autoplay={true}
+            className="w-96 h-96" // 크기 조절 가능
+          />
+        </div>
+      )}
+
       {/* 왼쪽 섹션 네비게이션 - 모바일에서 숨김 */}
       <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 max-[1360px]:hidden">
         <div className="flex flex-col gap-4">
@@ -150,26 +177,15 @@ const FloatingMenu = ({
             </>
           )}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
+            onClick={handleMenuClick}
+            className="w-14 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
           >
-            {isOpen ? (
-              <Image
-                src={'/assets/icons/close.svg'}
-                width={24}
-                height={24}
-                className="w-4 h-4 md:w-6 md:h-6"
-                alt={'close'}
-              />
-            ) : (
-              <Image
-                src={'/assets/icons/menu.svg'}
-                width={24}
-                height={24}
-                className="w-4 h-4 md:w-6 md:h-6"
-                alt={'menu'}
-              />
-            )}
+            <Lottie
+              animationData={giftAnimation}
+              loop={true}
+              autoplay={true}
+              className="w-4 h-4 md:w-12 md:h-12"
+            />
           </button>
           <button
             onClick={onScrollToTop}

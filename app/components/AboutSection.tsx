@@ -5,7 +5,7 @@ interface BadgeProps {
 }
 
 const Badge = ({ label }: BadgeProps) => (
-  <div className="flex items-center bg-[#2D2D2D] rounded-full px-4 py-2 text-sm">
+  <div className="inline-flex items-center bg-[#2D2D2D] rounded-full px-4 py-2 text-sm whitespace-nowrap">
     <span>{label}</span>
   </div>
 );
@@ -33,14 +33,14 @@ const SkillItem = ({ icon, label }: SkillItemProps) => (
 
 const AboutSection = () => {
   const badges = [
-    { icon: 'developer.svg', label: '🧐 디자인 씽커' },
-    { icon: 'react.svg', label: '🔥 묵묵하고 꾸준하게' },
-    { icon: 'typescript.svg', label: '🙏 애자일 전도사' },
-    { icon: 'typescript.svg', label: '🤼‍♀️ 집단지성' },
-    { icon: 'typescript.svg', label: '💪 회복탄력성' },
-    { icon: 'typescript.svg', label: '💻 시민을 위한 개발자' },
-    { icon: 'typescript.svg', label: '🤖 AI리터러시' },
-    { icon: 'typescript.svg', label: '👀 겸손과 메타인지' },
+    { label: '🔗 Connecting the dots' },
+    { label: '🔥 묵묵하고 꾸준하게' },
+    { label: '💪 높은 회복탄력성' },
+    { label: '💻 빠른 피드백 수용' },
+    { label: '👀 겸손과 메타인지' },
+    { label: '🤖 AI리터러시' },
+    { label: '🚀 균형있는 고민과 행동' },
+    { label: '➗ 많이 배우고 많이 공유하기' },
     // 더 많은 뱃지 추가 가능
   ];
 
@@ -79,22 +79,37 @@ const AboutSection = () => {
     <div className="w-full max-w-6xl mx-auto p-8 pt-20 md:py-16 min-h-screen">
       {/* About Me */}
       <div className="mb-10">
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          <div className="w-20 h-20 relative">
+        <div className="flex flex-col items-center gap-8">
+          {/* 프로필 이미지 */}
+          <div className="w-40 h-40 relative">
             <Image
               src="/assets/images/debear.jpeg"
               alt="Profile"
               sizes="(max-width: 768px) 100vw, 50vw"
               fill
-              className="object-contain"
+              className="object-cover rounded-full border-4 border-white shadow-lg"
             />
           </div>
 
-          {/* 뱃지 컨테이너 - 모바일 중앙 정렬 추가 */}
-          <div className="flex flex-wrap gap-3 max-w-xl justify-center md:justify-start">
-            {badges.map((badge, index) => (
-              <Badge key={index} {...badge} />
-            ))}
+          {/* 뱃지 슬라이더 컨테이너 */}
+          <div className="w-full flex justify-center">
+            <div className="w-full max-w-2xl overflow-hidden">
+              <div className="w-full h-[120px] overflow-hidden relative">
+                <div className="flex flex-wrap gap-3 animate-slide">
+                  {[...badges].map((badge, index) => (
+                    <Badge key={`first-${index}`} {...badge} />
+                  ))}
+                </div>
+                <div
+                  className="flex flex-wrap gap-3 animate-slide"
+                  style={{ position: 'absolute', left: '100%', top: 0 }}
+                >
+                  {[...badges].map((badge, index) => (
+                    <Badge key={`second-${index}`} {...badge} />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
