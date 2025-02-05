@@ -81,11 +81,9 @@ const FloatingMenu = ({
   currentSection,
   onSectionClick,
 }: FloatingMenuProps) => {
-  const [isOpen, setIsOpen] = useState(true);
   const [showFirework, setShowFirework] = useState(false);
 
   const handleMenuClick = () => {
-    setIsOpen(!isOpen);
     setShowFirework(true);
     // 애니메이션이 끝나면 상태를 다시 false로 설정
     setTimeout(() => setShowFirework(false), 2000); // 로티 애니메이션 길이에 맞게 시간 조정
@@ -120,7 +118,7 @@ const FloatingMenu = ({
                 currentSection === item.sectionIndex
                   ? currentSection === 0
                     ? 'text-[#0d0d0d]'
-                    : 'text-white'
+                    : 'text-[#F5F5F5]'
                   : 'text-gray-500'
               }`}
             >
@@ -129,15 +127,15 @@ const FloatingMenu = ({
                   currentSection === item.sectionIndex
                     ? currentSection === 0
                       ? 'bg-[#0d0d0d] scale-150'
-                      : 'bg-white scale-150'
-                    : 'bg-gray-500 group-hover:bg-white'
+                      : 'bg-[#F5F5F5] scale-150'
+                    : 'bg-gray-500 group-hover:bg-[#F5F5F5]'
                 }`}
               />
               <span
                 className={`text-sm font-medium transition-all duration-300 ${
                   currentSection === item.sectionIndex
                     ? ''
-                    : 'group-hover:text-white'
+                    : 'group-hover:text-[#F5F5F5]'
                 }`}
               >
                 {item.title}
@@ -150,32 +148,6 @@ const FloatingMenu = ({
       {/* 기존 오른쪽 플로팅 메뉴 */}
       <div className="fixed bottom-8 right-4 md:right-8 z-50">
         <div className="flex flex-col gap-2">
-          {isOpen && (
-            <>
-              {menuItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative group flex items-center justify-end"
-                >
-                  <span className="absolute right-[calc(100%+0.75rem)] hidden group-hover:block bg-white px-3 py-1 rounded-lg shadow-lg whitespace-nowrap text-[#0d0d0d]">
-                    {item.title}
-                  </span>
-                  <button
-                    className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
-                    onClick={() => window.open(item.url, '_blank')}
-                  >
-                    <Image
-                      src={item.icon}
-                      width={24}
-                      height={24}
-                      className="w-4 h-4 md:w-6 md:h-6"
-                      alt={item.alt}
-                    />
-                  </button>
-                </div>
-              ))}
-            </>
-          )}
           <button
             onClick={handleMenuClick}
             className="w-14 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
@@ -189,7 +161,7 @@ const FloatingMenu = ({
           </button>
           <button
             onClick={onScrollToTop}
-            className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all md:hidden"
+            className="w-12 h-12 md:w-12 md:h-12 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all"
           >
             <Image
               src={'/assets/icons/up.svg'}

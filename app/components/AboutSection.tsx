@@ -31,6 +31,28 @@ const SkillItem = ({ icon, label }: SkillItemProps) => (
   </div>
 );
 
+interface LearnMoreItemProps {
+  icon: string;
+  text: string;
+  url: string;
+}
+
+const LearnMoreItem = ({ icon, text, url }: LearnMoreItemProps) => (
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group border-2 border-white rounded-lg h-12 flex items-center justify-center gap-2 hover:bg-white/10 transition-all p-12"
+  >
+    <span className="text-white text-xl">
+      <Image src={icon} alt={text} width={20} height={20} />
+    </span>
+    <span className="text-white text-md font-bold italic group-hover:underline">
+      {text}
+    </span>
+  </a>
+);
+
 const AboutSection = () => {
   const badges = [
     { label: '🔗 Connecting the dots' },
@@ -75,6 +97,29 @@ const AboutSection = () => {
     ],
   };
 
+  const learnMoreItems: LearnMoreItemProps[] = [
+    {
+      icon: '/assets/icons/github.svg',
+      text: 'Github',
+      url: 'https://github.com/BaekKunHee',
+    },
+    {
+      icon: '/assets/icons/link.svg',
+      text: 'Bio Link',
+      url: 'https://bit.ly/m/han_baek',
+    },
+    {
+      icon: '/assets/icons/notion.svg',
+      text: 'Notion',
+      url: 'https://www.notion.so/baek-kun-hee-123456',
+    },
+    {
+      icon: '/assets/icons/medium.svg',
+      text: 'Resume',
+      url: 'https://han-baek.notion.site/Han-Baek-Problem-Solver-18fca87a5280804a8765dbc6aac4a7c1?pvs=4',
+    },
+  ];
+
   return (
     <div className="w-full max-w-6xl mx-auto p-8 pt-20 md:py-16 min-h-screen">
       {/* About Me */}
@@ -114,22 +159,13 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Values & Perspective */}
+      {/* Learn More 섹션 */}
       <div className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">Values & Perspective</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
-            "Connecting the dots"
-          </div>
-          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
-            "매 순간 최선을 다하자"
-          </div>
-          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
-            "고민과 행동의 간극을 줄이자"
-          </div>
-          <div className="bg-neutral-200 h-12 rounded flex items-center justify-center text-[#2D2D2D] text-md font-bold italic">
-            "수신제가치국평천하"
-          </div>
+        <h2 className="text-2xl font-bold mb-4">Learn More</h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {learnMoreItems.map((item, index) => (
+            <LearnMoreItem key={index} {...item} />
+          ))}
         </div>
       </div>
 

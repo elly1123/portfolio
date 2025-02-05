@@ -16,7 +16,7 @@ const TabMenu = ({ activeTab, onTabChange }: TabMenuProps) => {
             className={`px-6 py-2 rounded-full transition-all ${
               activeTab === tab
                 ? 'bg-white text-black'
-                : 'text-white hover:bg-gray-700'
+                : 'text-[#F5F5F5] hover:bg-gray-700'
             }`}
           >
             {tab}
