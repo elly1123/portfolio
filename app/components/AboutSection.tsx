@@ -9,6 +9,20 @@ import {
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import Image from 'next/image';
+// Lottie 애니메이션 파일들을 동적 import
+import flag from '@/public/assets/animations/flag.json';
+import idea from '@/public/assets/animations/idea.json';
+import mentorship from '@/public/assets/animations/mentorship.json';
+import mission from '@/public/assets/animations/mission.json';
+import user from '@/public/assets/animations/user.json';
+
+const animationFiles = {
+  flag: flag,
+  idea: idea,
+  mentorship: mentorship,
+  mission: mission,
+  user: user,
+};
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -30,10 +44,10 @@ const SkillItem = ({
   isSoft,
 }: SkillItemType & { isSoft: boolean }) => (
   <div className="flex flex-col items-center gap-2">
-    <div className="w-10 h-10 md:w-18 md:h-18 bg-white rounded-full flex items-center justify-center">
+    <div className="w-10 h-10 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center">
       {isSoft ? (
         <Lottie
-          animationData={require(`@/public/assets/animations/${icon}`)}
+          animationData={animationFiles[icon as keyof typeof animationFiles]}
           loop={true}
           autoplay={true}
           className="w-8 h-8 md:w-10 md:h-10"
@@ -148,8 +162,9 @@ const AboutSection = () => {
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                개발을 할 때 단순히 "이 기능이 필요하다"가 아니라 "이 기능이
-                비즈니스에 어떤 영향을 줄 것인가?"를 먼저 생각합니다.
+                개발을 할 때 단순히 &ldquo;이 기능이 필요하다&rdquo;가 아니라
+                &ldquo;이 기능이 비즈니스에 어떤 영향을 줄 것인가?&rdquo;를 먼저
+                생각합니다.
               </li>
               <br />
               <li>

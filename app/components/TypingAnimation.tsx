@@ -11,8 +11,6 @@ export default function TypingAnimation({
   isAnimationComplete,
   showProfile,
 }: TypingAnimationProps) {
-  console.log('showProfile:', showProfile);
-
   return (
     <div
       className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 ${

@@ -59,11 +59,11 @@ export const skillSets: SkillSets = {
     { icon: 'jira.svg', label: 'Jira' },
   ],
   softSkills: [
-    { icon: 'idea.json', label: '팀워크' },
-    { icon: 'user.json', label: '팔로워쉽' },
-    { icon: 'mission.json', label: '문제해결' },
-    { icon: 'mentorship.json', label: '의사소통' },
-    { icon: 'flag.json', label: '리더쉽' },
+    { icon: 'idea', label: '팀워크' },
+    { icon: 'user', label: '팔로워쉽' },
+    { icon: 'mission', label: '문제해결' },
+    { icon: 'mentorship', label: '의사소통' },
+    { icon: 'flag', label: '리더쉽' },
   ],
 };
 

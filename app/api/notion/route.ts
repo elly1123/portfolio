@@ -27,7 +27,6 @@ export async function GET() {
     );
 
     const data = await response.json();
-    console.log('Notion API Response:', JSON.stringify(data, null, 2)); // 응답 데이터 확인
 
     if (!data.results || !Array.isArray(data.results)) {
       throw new Error('Invalid response format');

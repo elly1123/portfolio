@@ -21,7 +21,7 @@ export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const { isAnimationComplete, showProfile, setShowPortfolio } =
     useAnimationState();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [, setIsModalOpen] = useState(false);
 
   // 현재 섹션 추적
   useEffect(() => {

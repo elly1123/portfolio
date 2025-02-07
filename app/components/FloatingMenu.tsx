@@ -7,13 +7,6 @@ import Lottie from 'lottie-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
-interface MenuItem {
-  title: string;
-  icon: string;
-  url: string;
-  alt: string;
-}
-
 interface SectionMenuItem {
   title: string;
   sectionIndex: number;
