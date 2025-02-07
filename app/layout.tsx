@@ -35,7 +35,14 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <meta name="google-site-verification" content="lVXhm5EZyhKPf8ZMYcZANLu47y2G4WEYYKCxVtEx_pY" />
+        <meta
+          name="google-site-verification"
+          content="lVXhm5EZyhKPf8ZMYcZANLu47y2G4WEYYKCxVtEx_pY"
+        />
+        <meta
+          name="naver-site-verification"
+          content="f3b509c8e5f76c453633e2794312bbec4f6a01a1"
+        />
       </head>
       <body
         className={`${spoqaHanSans.variable} spoqahansans_d39bb874-module__biuP4G__variable`}
