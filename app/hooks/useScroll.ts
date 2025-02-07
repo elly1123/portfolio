@@ -18,29 +18,26 @@ export const useScroll = ({
   const [currentSection, setCurrentSection] = useState(0); // 현재 섹션 인덱스 상태
   const [isScrolling, setIsScrolling] = useState(false);
 
-  const scrollToSection = useCallback(
-    (sectionIndex: number) => {
-      // 메뉴 클릭 시에는 isScrolling 체크를 하지 않음
-      setCurrentSection(sectionIndex);
+  const scrollToSection = useCallback((sectionIndex: number) => {
+    if (typeof window === 'undefined') return; // 서버 사이드에서 실행되지 않도록 체크
 
-      // ID를 기반으로 스크롤
-      const sectionId = `section-${sectionIndex}`;
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    setCurrentSection(sectionIndex);
 
-      // 스크롤 애니메이션 동안만 isScrolling을 true로 설정
-      setIsScrolling(true);
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, 1000);
-    },
-    [] // isScrolling 의존성 제거
-  );
+    const sectionId = `section-${sectionIndex}`;
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setIsScrolling(true);
+    setTimeout(() => {
+      setIsScrolling(false);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
-    if (!isAnimationComplete || isModalOpen) return;
+    if (!isAnimationComplete || isModalOpen || typeof window === 'undefined')
+      return;
 
     const handleWheel = (e: WheelEvent) => {
       // 모바일에서는 스크롤 이벤트를 처리하지 않음
@@ -175,12 +172,14 @@ export const useScroll = ({
     };
 
     // 데스크톱에서만 wheel 이벤트 리스너 추가
-    if (window.innerWidth >= 768) {
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
       window.addEventListener('wheel', handleWheel, { passive: false });
     }
 
     return () => {
-      window.removeEventListener('wheel', handleWheel);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('wheel', handleWheel);
+      }
     };
   }, [
     currentSection,
