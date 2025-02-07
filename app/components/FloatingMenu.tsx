@@ -3,9 +3,10 @@
 import downAnimationData from '@/public/assets/animations/down.json';
 import fireWorkAnimationData from '@/public/assets/animations/firework.json';
 import giftAnimationData from '@/public/assets/animations/gift.json';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState } from 'react';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 interface SectionMenuItem {
   title: string;

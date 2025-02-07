@@ -7,7 +7,8 @@ import {
   skillSets,
 } from '@/app/data/aboutData';
 import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import Image from 'next/image';
 // Lottie 애니메이션 파일들을 동적 import
 import flag from '@/public/assets/animations/flag.json';
