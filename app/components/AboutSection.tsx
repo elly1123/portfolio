@@ -13,13 +13,13 @@ const SkillItem = ({
   isSoft,
 }: SkillItemType & { isSoft: boolean }) => (
   <div className="flex flex-col items-center gap-2">
-    <div className="w-16 h-16 md:w-18 md:h-18 bg-white rounded-full flex items-center justify-center">
+    <div className="w-10 h-10 md:w-18 md:h-18 bg-white rounded-full flex items-center justify-center">
       {isSoft ? (
         <Lottie
           animationData={require(`@/public/assets/animations/${icon}`)}
           loop={true}
           autoplay={true}
-          className="w-10 h-10"
+          className="w-8 h-8 md:w-10 md:h-10"
         />
       ) : (
         <Image
@@ -28,7 +28,7 @@ const SkillItem = ({
           alt={label}
           width={60}
           height={60}
-          className="md:w-6 md:h-6 w-[20px] h-[20px]"
+          className="w-[16px] h-[16px] md:w-6 md:h-6"
         />
       )}
     </div>
@@ -57,7 +57,7 @@ const LearnMoreItem = ({ icon, text, url }: LearnMoreItemType) => (
 
 const AboutSection = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto p-8 pt-32 md:pt-24">
+    <div className="w-full max-w-6xl mx-auto p-8 pt-8 md:pt-24">
       {/* About Me */}
       <div className="mb-10">
         <div className="flex flex-col items-center">

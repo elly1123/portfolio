@@ -79,7 +79,7 @@ export default function Home() {
               showProfile={showProfile}
             />
             {showProfile && (
-              <div className="flex flex-col justify-center items-center z-10 max-w-[920px] overflow-hidden relative bottom-32">
+              <div className="flex flex-col justify-center items-center z-10 max-w-[920px] overflow-hidden relative bottom-36">
                 <div className="w-full h-[40px] overflow-hidden relative flex justify-start">
                   <div className="flex gap-2 animate-slide-left whitespace-nowrap">
                     {badges.one.map((label, i) => (

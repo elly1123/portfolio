@@ -58,7 +58,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
 
   return (
     <>
-      <div className="w-full max-w-6xl mx-auto p-8 pt-32 md:pt-24">
+      <div className="w-full max-w-6xl mx-auto p-8 md:pt-24">
         <TabMenu activeTab={activeTab} onTabChange={setActiveTab} />
 
         <motion.div

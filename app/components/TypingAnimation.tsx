@@ -27,14 +27,14 @@ export default function TypingAnimation({
           wrapper="span"
           speed={40}
           cursor={false}
-          className={`text-4xl sm:text-4xl md:text-6xl font-extrabold transition-all duration-1000 ${
+          className={`text-2xl sm:text-2xl md:text-6xl font-extrabold transition-all duration-1000 ${
             showProfile ? 'text-white' : 'text-black'
           }`}
         />
       )}
       {showProfile && (
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold transition-all duration-2000 text-white animate-fade-in">
+          <h1 className="text-3xl sm:text-3xl md:text-6xl font-extrabold transition-all duration-2000 text-white animate-fade-in">
             A Business-driven Developer.
           </h1>
           <TypeAnimation
