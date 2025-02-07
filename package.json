@@ -26,8 +26,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-typing-effect": "^2.0.7",
-    "@typescript-eslint/eslint-plugin": "^8.23.0",
-    "@typescript-eslint/parser": "^8.23.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",

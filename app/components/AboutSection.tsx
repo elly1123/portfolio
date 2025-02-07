@@ -57,15 +57,10 @@ const LearnMoreItem = ({ icon, text, url }: LearnMoreItemType) => (
 
 const AboutSection = () => {
   return (
-    <div
-      id="about-container"
-      className="w-full max-w-6xl mx-auto p-8 pt-32 md:pt-24 min-h-screen overflow-y-auto max-h-screen"
-    >
+    <div className="w-full max-w-6xl mx-auto p-8 pt-32 md:pt-24">
       {/* About Me */}
       <div className="mb-10">
         <div className="flex flex-col items-center">
-          {/* 프로필 이미지 */}
-
           <div className="flex flex-col items-center w-full max-w-md mx-auto mt-8 space-y-4">
             <div className="w-full bg-[#2A2A2A] rounded-lg p-6 shadow-lg border border-white/10">
               <div className="w-40 h-40 relative animate-fade-in mx-auto mb-6">
@@ -97,6 +92,7 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+
       {/* Learn More 섹션 */}
       <div className="mb-10">
         <h2 className="text-2xl font-bold mb-4">Learn More</h2>
@@ -119,7 +115,7 @@ const AboutSection = () => {
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                개발을 할 때 단순히 “이 기능이 필요하다”가 아니라 "이 기능이
+                개발을 할 때 단순히 "이 기능이 필요하다"가 아니라 "이 기능이
                 비즈니스에 어떤 영향을 줄 것인가?"를 먼저 생각합니다.
               </li>
               <br />
