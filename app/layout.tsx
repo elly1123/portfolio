@@ -34,6 +34,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
+      <head>
+        <meta name="google-site-verification" content="lVXhm5EZyhKPf8ZMYcZANLu47y2G4WEYYKCxVtEx_pY" />
+      </head>
       <body
         className={`${spoqaHanSans.variable} spoqahansans_d39bb874-module__biuP4G__variable`}
         suppressHydrationWarning={true}
