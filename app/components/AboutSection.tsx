@@ -1,43 +1,53 @@
+import {
+  type Badge as BadgeType,
+  type LearnMoreItem as LearnMoreItemType,
+  type SkillItem as SkillItemType,
+  badges,
+  learnMoreItems,
+  skillSets,
+} from '@/app/data/aboutData';
+import Lottie from 'lottie-react';
 import Image from 'next/image';
 
-interface BadgeProps {
-  label: string;
-}
-
-const Badge = ({ label }: BadgeProps) => (
+const Badge = ({ label }: BadgeType) => (
   <div className="inline-flex items-center bg-[#2D2D2D] rounded-full px-4 py-2 text-sm whitespace-nowrap">
     <span>{label}</span>
   </div>
 );
 
-interface SkillItemProps {
-  icon: string;
-  label: string;
-}
-
-const SkillItem = ({ icon, label }: SkillItemProps) => (
+const SkillItem = ({
+  icon,
+  label,
+  isSoft,
+}: SkillItemType & { isSoft: boolean }) => (
   <div className="flex flex-col items-center gap-2">
-    <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center">
-      <Image
-        src={`/assets/icons/${icon}`}
-        sizes="(max-width: 768px) 100vw, 50vw"
-        alt={label}
-        width={20}
-        height={20}
-        className="md:w-6 md:h-6 w-[20px] h-[20px]"
-      />
+    <div className="w-16 h-16 md:w-18 md:h-18 bg-white rounded-full flex items-center justify-center">
+      {isSoft ? (
+        <Lottie
+          animationData={require(`@/public/assets/animations/${icon}`)}
+          loop={true}
+          autoplay={true}
+          className="w-10 h-10"
+        />
+      ) : (
+        <Image
+          src={`/assets/icons/${icon}`}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={label}
+          width={60}
+          height={60}
+          className="md:w-6 md:h-6 w-[20px] h-[20px]"
+        />
+      )}
     </div>
-    <span className="text-black text-xs md:text-sm text-center">{label}</span>
+
+    <span className="text-[#F5F5F5] text-xs md:text-sm text-center">
+      {label}
+    </span>
   </div>
 );
 
-interface LearnMoreItemProps {
-  icon: string;
-  text: string;
-  url: string;
-}
-
-const LearnMoreItem = ({ icon, text, url }: LearnMoreItemProps) => (
+const LearnMoreItem = ({ icon, text, url }: LearnMoreItemType) => (
   <a
     href={url}
     target="_blank"
@@ -54,72 +64,6 @@ const LearnMoreItem = ({ icon, text, url }: LearnMoreItemProps) => (
 );
 
 const AboutSection = () => {
-  const badges = [
-    { label: '🔗 Connecting the dots' },
-    { label: '🔥 묵묵하고 꾸준하게' },
-    { label: '💪 높은 회복탄력성' },
-    { label: '💻 빠른 피드백 수용' },
-    { label: '👀 겸손과 메타인지' },
-    { label: '🤖 AI리터러시' },
-    { label: '🚀 균형있는 고민과 행동' },
-    { label: '➗ 많이 배우고 많이 공유하기' },
-    // 더 많은 뱃지 추가 가능
-  ];
-
-  const skillSets = {
-    stack: [
-      { icon: 'next.svg', label: 'Next.js' },
-      { icon: 'typescript.svg', label: 'TypeScript' },
-      { icon: 'python.svg', label: 'Python' },
-      { icon: 'flutter.svg', label: 'Flutter' },
-      { icon: 'lowcode.svg', label: 'LowCode' },
-    ],
-    infra: [
-      { icon: 'aws.svg', label: 'AWS' },
-      { icon: 'docker.svg', label: 'Docker' },
-      { icon: 'mysql.svg', label: 'Database' },
-      { icon: 'kubernetes.svg', label: 'Kubernetes' },
-      { icon: 'github.svg', label: 'CI/CD' },
-    ],
-    tools: [
-      { icon: 'gpt.svg', label: 'Prompt' },
-      { icon: 'figma.svg', label: 'Figma' },
-      { icon: 'make.svg', label: 'Automation' },
-      { icon: 'data.svg', label: 'Analytics' },
-      { icon: 'jira.svg', label: 'Jira' },
-    ],
-    softSkills: [
-      { icon: 'teamwork.svg', label: '팀워크' },
-      { icon: 'followership.svg', label: '팔로워쉽' },
-      { icon: 'problemsolving.svg', label: '문제해결' },
-      { icon: 'communication.svg', label: '의사소통' },
-      { icon: 'leadership.svg', label: '리더쉽' },
-    ],
-  };
-
-  const learnMoreItems: LearnMoreItemProps[] = [
-    {
-      icon: '/assets/icons/github.svg',
-      text: 'Github',
-      url: 'https://github.com/BaekKunHee',
-    },
-    {
-      icon: '/assets/icons/link.svg',
-      text: 'Bio Link',
-      url: 'https://bit.ly/m/han_baek',
-    },
-    {
-      icon: '/assets/icons/notion.svg',
-      text: 'Notion',
-      url: 'https://www.notion.so/baek-kun-hee-123456',
-    },
-    {
-      icon: '/assets/icons/medium.svg',
-      text: 'Resume',
-      url: 'https://han-baek.notion.site/Han-Baek-Problem-Solver-18fca87a5280804a8765dbc6aac4a7c1?pvs=4',
-    },
-  ];
-
   return (
     <div
       id="about-container"
@@ -172,51 +116,29 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Skills & Tools - 마진 바텀 조정 */}
+      {/* Skills & Tools */}
       <div className="mb-8 md:mb-16">
         <h2 className="text-2xl font-bold mb-4">Skills & Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          {/* Skill 섹션들의 간격 및 패딩 조정 */}
-          <div className="bg-neutral-200 p-4 md:p-4 rounded">
-            <span className="text-black font-bold mb-4 md:mb-4 block">
-              Stack
-            </span>
-            <div className="flex justify-between items-center gap-2 md:gap-4">
-              {skillSets.stack.map((skill, index) => (
-                <SkillItem key={index} {...skill} />
-              ))}
+          {Object.entries(skillSets).map(([category, skills]) => (
+            <div
+              key={category}
+              className="border-2 border-[#F5F5F5] p-6 md:p-8 rounded"
+            >
+              <span className="text-[#F5F5F5] font-bold mb-4 md:mb-4 block">
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </span>
+              <div className="flex justify-between items-center gap-2 md:gap-4">
+                {skills.map((skill: SkillItemType, index: number) => (
+                  <SkillItem
+                    key={index}
+                    {...skill}
+                    isSoft={category === 'softSkills'}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="bg-neutral-200 p-4 md:p-4 rounded">
-            <span className="text-black font-bold mb-4 md:mb-4 block">
-              Infra
-            </span>
-            <div className="flex justify-between items-center gap-2 md:gap-4">
-              {skillSets.infra.map((skill, index) => (
-                <SkillItem key={index} {...skill} />
-              ))}
-            </div>
-          </div>
-          <div className="bg-neutral-200 p-4 md:p-4 rounded">
-            <span className="text-black font-bold mb-4 md:mb-4 block">
-              Tool
-            </span>
-            <div className="flex justify-between items-center gap-2 md:gap-4">
-              {skillSets.tools.map((skill, index) => (
-                <SkillItem key={index} {...skill} />
-              ))}
-            </div>
-          </div>
-          <div className="bg-neutral-200 p-4 md:p-4 rounded">
-            <span className="text-black font-bold mb-4 md:mb-4 block">
-              Soft Skill
-            </span>
-            <div className="flex justify-between items-center gap-2 md:gap-4">
-              {skillSets.softSkills.map((skill, index) => (
-                <SkillItem key={index} {...skill} />
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

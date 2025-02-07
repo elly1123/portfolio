@@ -68,13 +68,11 @@ export default function Home() {
           {/* 메인 섹션 */}
           <section
             id="section-0"
-            className={`relative w-full h-screen flex items-center justify-center overflow-hidden ${
-              showProfile
-                ? 'bg-[url("/assets/images/abstract.jpg")] bg-cover bg-opacity-100'
-                : 'bg-[#F9FBFC]'
+            className={`relative w-full h-screen flex items-center justify-center overflow-hidden transition-all duration-1000 ${
+              !isAnimationComplete ? 'bg-[#F9FBFC]' : ''
             }`}
           >
-            <BackgroundOverlay showProfile={showProfile} />
+            <BackgroundOverlay isAnimationComplete={isAnimationComplete} />
             <TypingAnimation
               isAnimationComplete={isAnimationComplete}
               showProfile={showProfile}

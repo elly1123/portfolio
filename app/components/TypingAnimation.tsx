@@ -11,28 +11,42 @@ export default function TypingAnimation({
   isAnimationComplete,
   showProfile,
 }: TypingAnimationProps) {
+  console.log('showProfile:', showProfile);
+
   return (
     <div
-      className={`flex flex-col items-center justify-center transition-all duration-700 relative z-10 ${
+      className={`flex flex-col items-center justify-center transition-all duration-1000 relative z-10 ${
         isAnimationComplete
-          ? 'scale-75 translate-y-[-200px] md:translate-y-[-300px]'
+          ? 'scale-75 translate-y-[-200px] md:translate-y-[-220px]'
           : 'animate-fade-in'
       }`}
     >
-      <TypeAnimation
-        sequence={['Problem Solver Han.', 1000]}
-        wrapper="span"
-        speed={40}
-        cursor={false}
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold"
-      />
-      {showProfile && (
+      {!showProfile && (
         <TypeAnimation
-          sequence={['고객중심사고로 문제를 해결하는 백건희입니다.', 1000]}
+          sequence={['A Business-driven Developer.', 2000]}
           wrapper="span"
           speed={40}
-          className="text-md sm:text-base md:text-2xl font-medium p-2"
+          cursor={false}
+          className={`text-4xl sm:text-4xl md:text-6xl font-extrabold transition-all duration-1000 ${
+            showProfile ? 'text-white' : 'text-black'
+          }`}
         />
+      )}
+      {showProfile && (
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-4xl sm:text-4xl md:text-6xl font-extrabold transition-all duration-2000 text-white animate-fade-in">
+            A Business-driven Developer.
+          </h1>
+          <TypeAnimation
+            sequence={[
+              '비즈니스를 이해하고, 성장의 기회를 코드로 만드는 개발자, 백건희입니다.',
+              1000,
+            ]}
+            wrapper="span"
+            speed={40}
+            className="text-md sm:text-base md:text-2xl font-medium p-2 text-[#F5F5F5] opacity-0 animate-fade-in"
+          />
+        </div>
       )}
     </div>
   );

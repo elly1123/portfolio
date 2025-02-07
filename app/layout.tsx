@@ -10,11 +10,11 @@ const spoqaHanSans = localFont({
 export const metadata: Metadata = {
   title: 'Han Baek - Portfolio',
   description: 'Problem Solver Han',
-  metadataBase: new URL('https://hanbaek-myungsangbaeks-projects.vercel.app'),
+  metadataBase: new URL('https://kunhee.info'),
   openGraph: {
     title: 'Han Baek - Portfolio',
     description: 'Problem Solver Han',
-    url: 'https://hanbaek-myungsangbaeks-projects.vercel.app',
+    url: 'https://kunhee.info',
     siteName: 'Han Baek Portfolio',
     images: [
       {

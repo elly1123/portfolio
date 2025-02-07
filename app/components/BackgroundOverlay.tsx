@@ -1,17 +1,24 @@
 'use client';
 
 interface BackgroundOverlayProps {
-  showProfile: boolean;
+  isAnimationComplete: boolean;
 }
 
 export default function BackgroundOverlay({
-  showProfile,
+  isAnimationComplete,
 }: BackgroundOverlayProps) {
   return (
-    <div
-      className={`absolute inset-0 bg-[url("/assets/images/abstract.jpg")] bg-cover transition-opacity duration-1000 ${
-        showProfile ? 'opacity-100' : 'opacity-0'
-      }`}
-    />
+    <>
+      <div
+        className={`absolute inset-0 bg-[url("/assets/images/background.jpg")] bg-cover bg-center bg-no-repeat transition-opacity  duration-1000 z-[5] ${
+          isAnimationComplete ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      <div
+        className={`absolute inset-0 bg-black transition-opacity duration-1000 z-[6] ${
+          isAnimationComplete ? 'opacity-50' : 'opacity-0'
+        }`}
+      />
+    </>
   );
 }

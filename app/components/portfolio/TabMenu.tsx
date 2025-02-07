@@ -9,7 +9,7 @@ const TabMenu = ({ activeTab, onTabChange }: TabMenuProps) => {
   return (
     <div className="max-w-6xl mx-auto pt-8 mb-8">
       <div className="inline-flex bg-gray-600 rounded-full p-1">
-        {['All', 'Company', 'Side'].map((tab) => (
+        {['Work', 'Side'].map((tab) => (
           <button
             key={tab}
             onClick={() => onTabChange(tab as TabType)}

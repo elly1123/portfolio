@@ -1,4 +1,4 @@
-export type TabType = 'All' | 'Company' | 'Side';
+export type TabType = 'Work' | 'Side';
 
 export type Project = {
   id: number;

@@ -1,5 +1,6 @@
 'use client';
 
+import downAnimationData from '@/public/assets/animations/down.json';
 import fireWorkAnimationData from '@/public/assets/animations/firework.json';
 import giftAnimationData from '@/public/assets/animations/gift.json';
 import Lottie from 'lottie-react';
@@ -37,39 +38,6 @@ const sectionMenuItems: SectionMenuItem[] = [
   },
 ];
 
-const menuItems: MenuItem[] = [
-  {
-    title: 'Bio Link',
-    icon: '/assets/icons/link.svg',
-    url: 'https://bit.ly/m/han_baek',
-    alt: 'Bio Link',
-  },
-  {
-    title: 'Medium',
-    icon: '/assets/icons/medium.svg',
-    url: 'hhttps://medium.com/@han.baek',
-    alt: 'Medium',
-  },
-  {
-    title: 'Github',
-    icon: '/assets/icons/github.svg',
-    url: 'https://github.com/BaekKunHee',
-    alt: 'Github',
-  },
-  {
-    title: 'Linkedin',
-    icon: '/assets/icons/linkedin.svg',
-    url: 'https://www.linkedin.com/in/kunhee-baek-6724a7217',
-    alt: 'Linkedin',
-  },
-  {
-    title: 'Threads',
-    icon: '/assets/icons/threads.svg',
-    url: 'https://www.threads.net/@developer._.bear',
-    alt: 'Threads',
-  },
-];
-
 interface FloatingMenuProps {
   onScrollToTop: () => void;
   currentSection: number;
@@ -90,25 +58,42 @@ const FloatingMenu = ({
   };
 
   // 컴포넌트 내부에서 로티 애니메이션 추가
-  const menuAnimation = fireWorkAnimationData;
   const giftAnimation = giftAnimationData;
 
   return (
     <>
       {/* 폭죽 애니메이션 */}
       {showFirework && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-          <Lottie
-            animationData={fireWorkAnimationData}
-            loop={false}
-            autoplay={true}
-            className="w-96 h-96" // 크기 조절 가능
-          />
-        </div>
+        <>
+          <div className="fixed inset-0 flex items-center justify-start pl-22 z-50 pointer-events-none">
+            <Lottie
+              animationData={fireWorkAnimationData}
+              loop={false}
+              autoplay={true}
+              className="w-128 h-128" // 크기 조절 가능
+            />
+          </div>
+          <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+            <Lottie
+              animationData={fireWorkAnimationData}
+              loop={false}
+              autoplay={true}
+              className="w-128 h-128" // 크기 조절 가능
+            />
+          </div>
+          <div className="fixed inset-0 flex items-center justify-end pr-22 z-50 pointer-events-none">
+            <Lottie
+              animationData={fireWorkAnimationData}
+              loop={false}
+              autoplay={true}
+              className="w-128 h-128" // 크기 조절 가능
+            />
+          </div>
+        </>
       )}
 
       {/* 왼쪽 섹션 네비게이션 - 모바일에서 숨김 */}
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 max-[1360px]:hidden">
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 max-[1360px]:hidden">
         <div className="flex flex-col gap-4">
           {sectionMenuItems.map((item, index) => (
             <button
@@ -116,18 +101,14 @@ const FloatingMenu = ({
               onClick={() => onSectionClick(item.sectionIndex)}
               className={`flex items-center gap-3 group ${
                 currentSection === item.sectionIndex
-                  ? currentSection === 0
-                    ? 'text-[#0d0d0d]'
-                    : 'text-[#F5F5F5]'
+                  ? 'text-[#F5F5F5]'
                   : 'text-gray-500'
               }`}
             >
               <div
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   currentSection === item.sectionIndex
-                    ? currentSection === 0
-                      ? 'bg-[#0d0d0d] scale-150'
-                      : 'bg-[#F5F5F5] scale-150'
+                    ? 'bg-[#F5F5F5] scale-150'
                     : 'bg-gray-500 group-hover:bg-[#F5F5F5]'
                 }`}
               />
@@ -143,6 +124,16 @@ const FloatingMenu = ({
             </button>
           ))}
         </div>
+      </div>
+
+      {/* 하단 중앙 다운 애니메이션 */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <Lottie
+          animationData={downAnimationData}
+          loop={true}
+          autoplay={true}
+          className="w-16 h-16"
+        />
       </div>
 
       {/* 기존 오른쪽 플로팅 메뉴 */}

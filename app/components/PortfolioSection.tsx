@@ -12,7 +12,7 @@ interface PortfolioSectionProps {
 }
 
 const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
-  const [activeTab, setActiveTab] = useState<TabType>('All');
+  const [activeTab, setActiveTab] = useState<TabType>('Work');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [portfolioItems, setPortfolioItems] = useState<Project[]>([]);
   const [loadingItems, setLoadingItems] = useState(true);
@@ -75,9 +75,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
           ) : (
             <AnimatePresence>
               {portfolioItems
-                .filter(
-                  (item) => activeTab === 'All' || item.type === activeTab
-                )
+                .filter((item) => item.type === activeTab)
                 .map((item) => (
                   <ProjectCard
                     key={item.id}
