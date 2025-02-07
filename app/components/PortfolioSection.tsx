@@ -11,6 +11,13 @@ interface PortfolioSectionProps {
   onModalChange?: (isOpen: boolean) => void;
 }
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
 const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('Work');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -58,12 +65,24 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
 
   return (
     <>
-      <div className="w-full max-w-6xl mx-auto p-8 md:pt-24">
-        <TabMenu activeTab={activeTab} onTabChange={setActiveTab} />
+      <motion.div
+        className="w-full max-w-6xl mx-auto p-8 md:pt-24"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div {...fadeInUp}>
+          <TabMenu activeTab={activeTab} onTabChange={setActiveTab} />
+        </motion.div>
 
         <motion.div
           layout
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pb-8"
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
         >
           {loadingItems ? (
             <div className="col-span-2 flex justify-center items-center h-64">
@@ -83,7 +102,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
             </AnimatePresence>
           )}
         </motion.div>
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {selectedProject && (

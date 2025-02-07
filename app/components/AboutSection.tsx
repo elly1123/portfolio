@@ -1,11 +1,28 @@
+'use client';
+
 import {
   type LearnMoreItem as LearnMoreItemType,
   type SkillItem as SkillItemType,
   learnMoreItems,
   skillSets,
 } from '@/app/data/aboutData';
+import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import Image from 'next/image';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
+const staggerContainer = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true },
+  transition: { staggerChildren: 0.2 },
+};
 
 const SkillItem = ({
   icon,
@@ -59,7 +76,7 @@ const AboutSection = () => {
   return (
     <div className="w-full max-w-6xl mx-auto p-8 pt-8 md:pt-24">
       {/* About Me */}
-      <div className="mb-10">
+      <motion.div {...fadeInUp} className="mb-10">
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center w-full max-w-md mx-auto mt-8 space-y-4">
             <div className="w-full bg-[#2A2A2A] rounded-lg p-6 shadow-lg border border-white/10">
@@ -91,25 +108,41 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Learn More 섹션 */}
-      <div className="mb-10">
+      <motion.div {...fadeInUp} className="mb-10">
         <h2 className="text-2xl font-bold mb-4">Learn More</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-6"
+        >
           {learnMoreItems.map((item, index) => (
-            <LearnMoreItem key={index} {...item} />
+            <motion.div key={index} variants={fadeInUp}>
+              <LearnMoreItem {...item} />
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* How I Think & Work 섹션 */}
-      <div className="mb-10">
+      <motion.div {...fadeInUp} className="mb-10">
         <h2 className="text-2xl font-bold mb-4">How I Think & Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {/* Business-Driven Development */}
-          {/* Work Approach */}
-          <div className="bg-[#2A2A2A] p-6 rounded-lg">
+          <motion.div
+            variants={fadeInUp}
+            className="bg-[#2A2A2A] p-6 rounded-lg"
+          >
             <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
               📌 비즈니스 중심 개발
             </h3>
@@ -124,10 +157,13 @@ const AboutSection = () => {
                 방향으로 개선하는 게 제 방식입니다.
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Work Approach */}
-          <div className="bg-[#2A2A2A] p-6 rounded-lg">
+          <motion.div
+            variants={fadeInUp}
+            className="bg-[#2A2A2A] p-6 rounded-lg"
+          >
             <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
               ⚙️ 업무 방식
             </h3>
@@ -142,10 +178,13 @@ const AboutSection = () => {
                 느슨하지만 긴밀하게 협업하여 최적의 의사결정을 내립니다.
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Frameworks */}
-          <div className="bg-[#2A2A2A] p-6 rounded-lg">
+          <motion.div
+            variants={fadeInUp}
+            className="bg-[#2A2A2A] p-6 rounded-lg"
+          >
             <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
               🛠️ 프레임워크
             </h3>
@@ -160,10 +199,13 @@ const AboutSection = () => {
                 제품을 성장시키는 방법을 고민합니다.
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Business Impact */}
-          <div className="bg-[#2A2A2A] p-6 rounded-lg">
+          <motion.div
+            variants={fadeInUp}
+            className="bg-[#2A2A2A] p-6 rounded-lg"
+          >
             <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
               🚀 비즈니스 임팩트
             </h3>
@@ -179,16 +221,26 @@ const AboutSection = () => {
               </li>
               <br />
             </ul>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       {/* Skills & Tools */}
-      <div className="mb-8 md:mb-16">
+      <motion.div {...fadeInUp} className="mb-8 md:mb-16">
         <h2 className="text-2xl font-bold mb-4">Skills & Tools</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8"
+        >
           {Object.entries(skillSets).map(([category, skills]) => (
-            <div key={category} className="p-6 md:p-8 rounded bg-[#242424]">
+            <motion.div
+              key={category}
+              variants={fadeInUp}
+              className="p-6 md:p-8 rounded bg-[#242424]"
+            >
               <span className="text-[#F5F5F5] font-bold mb-4 md:mb-4 block">
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </span>
@@ -201,10 +253,10 @@ const AboutSection = () => {
                   />
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
