@@ -93,7 +93,7 @@ const FloatingMenu = ({
       )}
 
       {/* 왼쪽 섹션 네비게이션 - 모바일에서 숨김 */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 max-[1360px]:hidden">
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-50 max-[1360px]:hidden">
         <div className="flex flex-col gap-4">
           {sectionMenuItems.map((item, index) => (
             <button
@@ -127,14 +127,19 @@ const FloatingMenu = ({
       </div>
 
       {/* 하단 중앙 다운 애니메이션 */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <Lottie
-          animationData={downAnimationData}
-          loop={true}
-          autoplay={true}
-          className="w-16 h-16"
-        />
-      </div>
+      {currentSection === 0 && (
+        <div
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 cursor-pointer"
+          onClick={() => onSectionClick(1)}
+        >
+          <Lottie
+            animationData={downAnimationData}
+            loop={true}
+            autoplay={true}
+            className="w-16 h-16"
+          />
+        </div>
+      )}
 
       {/* 기존 오른쪽 플로팅 메뉴 */}
       <div className="fixed bottom-8 right-4 md:right-8 z-50">

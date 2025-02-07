@@ -1,7 +1,3 @@
-export interface Badge {
-  label: string;
-}
-
 export interface SkillItem {
   icon: string;
   label: string;
@@ -20,16 +16,25 @@ export interface SkillSets {
   softSkills: SkillItem[];
 }
 
-export const badges: Badge[] = [
-  { label: '🔗 Connecting the dots' },
-  { label: '🔥 묵묵하고 꾸준하게' },
-  { label: '💪 높은 회복탄력성' },
-  { label: '💻 빠른 피드백 수용' },
-  { label: '👀 겸손과 메타인지' },
-  { label: '🤖 AI리터러시' },
-  { label: '🚀 균형있는 고민과 행동' },
-  { label: '➗ 많이 배우고 많이 공유하기' },
-];
+export const badges = {
+  one: [
+    '🤖 AI리터러시',
+    '💡 문제 해결 중심 개발',
+    '📊 데이터 기반',
+    '🔄 지속적인 개선 & 실험',
+    '🚀 비즈니스 성장',
+    '🎯 전략적 사고 & 효율성',
+  ],
+  two: [
+    '🔗 Connecting the dots',
+    '💪 높은 회복탄력성',
+    '💻 빠른 피드백 수용',
+    '🔥 묵묵하고 꾸준하게',
+    '👀 겸손과 메타인지',
+    '🚀 균형있는 고민과 행동',
+    '🤝 협업 중심 커뮤니케이션',
+  ],
+};
 
 export const skillSets: SkillSets = {
   stack: [
@@ -54,10 +59,10 @@ export const skillSets: SkillSets = {
     { icon: 'jira.svg', label: 'Jira' },
   ],
   softSkills: [
-    { icon: 'user.json', label: '팀워크' },
-    { icon: 'mentorship.json', label: '팔로워쉽' },
+    { icon: 'idea.json', label: '팀워크' },
+    { icon: 'user.json', label: '팔로워쉽' },
     { icon: 'mission.json', label: '문제해결' },
-    { icon: 'idea.json', label: '의사소통' },
+    { icon: 'mentorship.json', label: '의사소통' },
     { icon: 'flag.json', label: '리더쉽' },
   ],
 };

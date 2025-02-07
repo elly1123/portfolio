@@ -38,7 +38,6 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
         </div>
 
         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-        <p className="text-gray-400 mb-3">{project.description}</p>
 
         <div className="flex flex-wrap gap-2">
           {project.tags?.map((tag) => (

@@ -2,17 +2,17 @@
 
 import Image from 'next/image';
 
-interface MainSectionProps {
+interface ProfileSectionProps {
   showProfile: boolean;
 }
 
-export default function MainSection({ showProfile }: MainSectionProps) {
+export default function ProfileSection({ showProfile }: ProfileSectionProps) {
   return (
     <div
-      className={`absolute bottom-0 flex flex-col items-center justify-center w-full text-center transition-all duration-1000 overflow-hidden ${
+      className={`absolute bottom-0 flex items-center justify-center text-center transition-all duration-1000 overflow-hidden ${
         showProfile
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-[100px] pointer-events-none'
+          ? 'opacity-100 z-10'
+          : 'opacity-0 translate-y-[200px] pointer-events-none'
       }`}
     >
       <div className="relative w-[360px] h-[540px]">

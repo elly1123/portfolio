@@ -66,7 +66,7 @@ const PortfolioSection = ({ onModalChange }: PortfolioSectionProps) => {
 
         <motion.div
           layout
-          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 pb-8"
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pb-8"
         >
           {loadingItems ? (
             <div className="col-span-2 flex justify-center items-center h-64">
