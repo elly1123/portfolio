@@ -8,14 +8,14 @@ const spoqaHanSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: '백건희(han.baek) - Portfolio',
-  description: '비즈니스 중심 개발자 백건희입니다.',
-  metadataBase: new URL('https://kunhee.info'),
+  title: '정다은(elly.1123) - Portfolio',
+  description: '감성 & 경험 중심 콘텐츠 기획자 정다은입니다.',
+  metadataBase: new URL('https://daeun.info'),
   openGraph: {
-    title: '백건희(han.baek) - Portfolio',
-    description: '비즈니스 중심 개발자 백건희입니다.',
-    url: 'https://kunhee.info',
-    siteName: '백건희(han.baek) Portfolio',
+    title: '정다은(elly.1123) - Portfolio',
+    description: '감성 & 경험 중심 콘텐츠 기획자 정다은입니다.',
+    url: 'https://daeun.info',
+    siteName: '정다은(elly.1123) Portfolio',
     images: [
       {
         url: '/assets/images/debear.jpeg',

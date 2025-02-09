@@ -108,24 +108,20 @@ const AboutSection = () => {
             className="bg-[#2A2A2A] p-6 rounded-lg"
           >
             <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
-              📌 비즈니스 중심 개발
+              📌 콘텐츠 중심 사고
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                개발을 할 때 단순히 &ldquo;이 기능이 필요하다&rdquo;가 아니라
-                &ldquo;이 기능이 비즈니스에 어떤 영향을 줄 것인가?&rdquo;를 먼저
-                생각합니다.
+                콘텐츠를 기획할 때 단순히 &ldquo;이 아이디어가 좋을까?&rdquo;가
+                아니라, &ldquo;이 콘텐츠가 브랜드와 사용자에게 어떤 가치를 줄
+                것인가?&rdquo;를 먼저 고민
               </li>
               <br />
+              <li>- CTR(클릭률) 44.97% 증가, 콘텐츠 클릭수 112.33% 상승</li>
               <li>
-                사용자 관점에서 가치를 만들어내고, 가설을 검증하면서 더 나은
-                방향으로 개선하는 게 제 방식입니다.
+                - 스타일뮤즈 콘텐츠 대비 PGC 콘텐츠 지표 평균 123.89% 상승
               </li>
-              <br />
-              <li>
-                단순한 감이 아닌 데이터와 사용자 피드백을 기반으로 제품의 성과를
-                측정하고 최적의 결정을 내립니다.
-              </li>
+              <li>- SEO & 콘텐츠 최적화 → 유입 트래픽 27.9% 증가</li>
             </ul>
           </motion.div>
 
@@ -139,19 +135,19 @@ const AboutSection = () => {
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                고객 중심 사고 - 제품을 개발할 때 내가 원하는 것이 아닌, 고객이
-                필요로 하는 것을 만듭니다.
+                고객 중심 사고 - 콘텐츠 제작 시 단순한 트렌드 반영이 아닌, 고객
+                니즈 및 데이터 분석을 기반으로 한 전략적 접근
               </li>
               <br />
               <li>
-                협업 중심 커뮤니케이션 - 트레이드오프(Trade-off) 관점에서
-                팀원들과 느슨하지만 긴밀하게 협업하여 최적의 의사결정을
-                내립니다.
+                A/B 테스트 및 데이터 최적화 - 콘텐츠 실험을 통해 가장 높은
+                반응을 이끌어내는 포맷 및 메시지 도출
               </li>
               <br />
               <li>
-                지속 가능한 개발 - 단기적인 결과뿐만 아니라, 장기적으로
-                유지보수하기 쉬운 코드와 구조를 고민합니다.
+                지속 가능한 콘텐츠 운영 - 일별 20개 이상, 주간 70개 이상의
+                콘텐츠 제작 및 배포, 브랜드 일관성을 유지하면서도 효율적인 운영
+                전략 적용
               </li>
             </ul>
           </motion.div>
@@ -166,18 +162,18 @@ const AboutSection = () => {
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                Agile - 빠르게 변화하는 비즈니스 요구에 맞춰 짧은 주기의 반복적
-                개발을 통해 효율적으로 제품을 개선합니다.
+                Growth Hacking - 유입 경로 분석 및 콘텐츠 최적화를 통해 구매
+                전환율 19.0% 달성, GMV(24H) 1,192,054,357원 기록
               </li>
               <br />
               <li>
-                Growth Hacking - 데이터 기반으로 사용자의 행동을 분석하고,
-                제품을 성장시키는 방법을 고민합니다.
+                SEO & 채널별 맞춤형 콘텐츠 - 검색 및 SNS 트래픽 확대, 구독 유저
+                11,707명 확보
               </li>
               <br />
               <li>
-                Lean Development - 최소 비용으로 최대 가치를 제공하기 위해,
-                불필요한 개발을 줄이고 핵심 기능에 집중합니다.
+                정기 콘텐츠 레터 운영 - CTR 12.53%, 업계 평균 대비 2배 이상의
+                성과 창출
               </li>
             </ul>
           </motion.div>
@@ -192,18 +188,17 @@ const AboutSection = () => {
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                UX 개선으로 전환율 20% 증가 - 기능 하나 바꾼 게 아니라, 사용자
-                흐름을 분석하고 최적화한 결과
+                콘텐츠 최적화 전략을 통해 상품 클릭수(일평균) 100.8% 상승, DAU
+                및 리텐션 확대 기여
               </li>
               <br />
               <li>
-                서비스 페이지 속도 50% 개선 - 프론트엔드 최적화(CDN 활용, 코드
-                스플리팅)와 백엔드 캐싱 전략을 적용하여 로딩 속도를 단축.
+                자동화 및 운영 최적화로 반복 작업을 줄이고 콘텐츠 효율 극대화
               </li>
               <br />
               <li>
-                자동화 도입으로 운영 비용 30% 절감 - 반복적인 수작업을
-                자동화하여 개발 및 운영의 효율성을 높이고, 비용을 절감했습니다.
+                매거진 스타일 계정 운영 & 브랜드 콘텐츠 강화 → 주간 20개 이상
+                업로드 진행
               </li>
             </ul>
           </motion.div>
@@ -265,7 +260,7 @@ const AboutSection = () => {
             <div className="w-full bg-[#2A2A2A] rounded-lg p-6 shadow-lg border border-white/10">
               <div className="w-40 h-40 relative animate-fade-in mx-auto mb-6">
                 <Image
-                  src="/assets/images/debear.jpeg"
+                  src="/assets/images/daling.jpeg"
                   alt="Profile"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   fill
@@ -275,17 +270,19 @@ const AboutSection = () => {
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-gray-400 text-right">이름</div>
                 <div className="text-[#f5f5f5] col-span-2">
-                  백건희(han.baek)
+                  정다은(elly.1123)
                 </div>
                 <div className="text-gray-400 text-right">생년월일</div>
-                <div className="text-[#f5f5f5] col-span-2">94.05.21</div>
+                <div className="text-[#f5f5f5] col-span-2">98.11.23</div>
 
                 <div className="text-gray-400 text-right">연락처</div>
-                <div className="text-[#f5f5f5] col-span-2">010-9786-0799</div>
+                <div className="text-[#f5f5f5] col-span-2">
+                  +82 10-3783-8814
+                </div>
 
                 <div className="text-gray-400 text-right">이메일</div>
                 <div className="text-[#f5f5f5] col-span-2">
-                  han.baek@gmail.com
+                  onew112398@gmail.com
                 </div>
               </div>
             </div>

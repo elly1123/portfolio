@@ -7,7 +7,7 @@ const ThankYouSection = () => {
     <section className="relative h-screen w-full bg-gray-50">
       {/* 배경 이미지 - 마블 패턴 */}
       <Image
-        src="/assets/images/thankyou_background.jpeg"
+        src="/assets/images/end_background.png"
         alt="Marble Background"
         fill
         className="absolute inset-0 object-cover opacity-50"
@@ -15,7 +15,7 @@ const ThankYouSection = () => {
       />
 
       {/* 콘텐츠 */}
-      <div className="relative flex flex-col items-center justify-center h-full px-4">
+      <div className="relative flex flex-col items-center justify-center h-full px-4 text-black">
         <motion.h1
           className="text-6xl font-bold mb-2"
           initial={{ opacity: 0, y: 20 }}
@@ -40,9 +40,14 @@ const ThankYouSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          저는 매일 새로운 점을 찍으며 저만의 여정을 만들어가고 있습니다.
+          끊임없이 변화하는 세상 속에서, 저는 새로운 트렌드를 탐구하고,
+          <br /> 데이터와 창의성을 결합하여 더 나은 콘텐츠를 만드는 것을 목표로
+          합니다.
           <br />
-          함께 새로운 점을 이어가며 더 큰 가능성을 그려나가길 기대합니다.
+          <br />
+          함께 새로운 가능성을 발견하고, 더 나은 콘텐츠 경험을 만들어가길
+          기대합니다!
+          <br /> 🚀 Let’s think, create, and grow together. 😊
         </motion.p>
 
         {/* 링크 버튼들 */}
@@ -54,7 +59,7 @@ const ThankYouSection = () => {
         >
           <Link
             target="_blank"
-            href="https://form.typeform.com/to/Gt6BZmLj"
+            href="https://form.typeform.com/to/WWKFArz6"
             className="border-b-2 border-black pb-1 hover:opacity-70 hover:text-black transition-opacity duration-300 text-gray-600 "
           >
             Feedback
@@ -68,7 +73,7 @@ const ThankYouSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <p>Copyright 2025. Baek Kun Hee all rights reserved.</p>
+          <p>Copyright 2025. Jung Da Eun all rights reserved.</p>
         </motion.div>
       </div>
     </section>

@@ -19,37 +19,37 @@ export interface SkillSets {
 export const badges = {
   one: [
     '🤖 AI리터러시',
-    '💡 문제 해결 중심 개발',
-    '📊 데이터 기반',
-    '🔄 지속적인 개선 & 실험',
-    '🚀 비즈니스 성장',
-    '🎯 전략적 사고 & 효율성',
+    '🎯 스토리텔링과 브랜드 메시지',
+    '🎨 비주얼 & 감성 중심 기획',
+    '📌 콘텐츠 실험과 지속적인 개선',
+    '📊 데이터 기반 콘텐츠 전략',
+    '📢 고객 중심 커뮤니케이션',
   ],
   two: [
-    '🔗 Connecting the dots',
-    '💪 높은 회복탄력성',
+    '🔍 트렌드 분석 & 인사이트 발견',
+    '⚙️ 효율적인 콘텐츠 운영과 실행',
     '💻 빠른 피드백 수용',
-    '🔥 묵묵하고 꾸준하게',
+    '🚀 차별화된 브랜딩과 포지셔닝',
     '👀 겸손과 메타인지',
-    '🚀 균형있는 고민과 행동',
-    '🤝 협업 중심 커뮤니케이션',
+    '🔗 연결 & 몰입 경험 설계',
+    '🔥 감성 & 경험 중심 콘텐츠 기획',
   ],
 };
 
 export const skillSets: SkillSets = {
   stack: [
-    { icon: 'next.svg', label: 'Next.js' },
-    { icon: 'typescript.svg', label: 'TypeScript' },
-    { icon: 'python.svg', label: 'Python' },
-    { icon: 'flutter.svg', label: 'Flutter' },
-    { icon: 'lowcode.svg', label: 'LowCode' },
+    { icon: 'photoshop.svg', label: '포토샵' },
+    { icon: 'miro.svg', label: '기획' },
+    { icon: 'zigzag.svg', label: '운영' },
+    { icon: 'instagram.svg', label: '발행' },
+    { icon: 'bittly.svg', label: '데이터분석' },
   ],
   infra: [
-    { icon: 'aws.svg', label: 'AWS' },
-    { icon: 'docker.svg', label: 'Docker' },
-    { icon: 'mysql.svg', label: 'Database' },
-    { icon: 'kubernetes.svg', label: 'Kubernetes' },
-    { icon: 'copilot.svg', label: 'CI/CD' },
+    { icon: 'wordpress.svg', label: '뉴스레터' },
+    { icon: 'rss.svg', label: '블로그' },
+    { icon: 'youtube.svg', label: '숏폼' },
+    { icon: 'meta.svg', label: '퍼포먼스' },
+    { icon: 'google.svg', label: 'SEO최적화' },
   ],
   tools: [
     { icon: 'gpt.svg', label: 'Prompt' },
@@ -63,29 +63,29 @@ export const skillSets: SkillSets = {
     { icon: 'user', label: '팔로워쉽' },
     { icon: 'mission', label: '문제해결' },
     { icon: 'mentorship', label: '의사소통' },
-    { icon: 'flag', label: '리더쉽' },
+    { icon: 'flag', label: '협업' },
   ],
 };
 
 export const learnMoreItems: LearnMoreItem[] = [
   {
-    icon: '/assets/icons/github.svg',
-    text: 'Github',
-    url: 'https://github.com/BaekKunHee',
+    icon: '/assets/icons/notion.svg',
+    text: 'Notion',
+    url: 'https://jelly-olive-ae1.notion.site/Daeun-18c49e5159c7802c8846e29fbfd11119?pvs=4',
   },
   {
     icon: '/assets/icons/link.svg',
     text: 'Bio Link',
-    url: 'https://bit.ly/m/han_baek',
+    url: 'https://bit.ly/m/elly1123',
   },
   {
-    icon: '/assets/icons/notion.svg',
-    text: 'Notion',
-    url: 'https://www.notion.so/baek-kun-hee-123456',
+    icon: '/assets/icons/linkedin.svg',
+    text: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/%EB%8B%A4%EC%9D%80-%EC%A0%95-b08b84343/',
   },
   {
     icon: '/assets/icons/medium.svg',
     text: 'Resume',
-    url: 'https://han-baek.notion.site/Han-Baek-Problem-Solver-18fca87a5280804a8765dbc6aac4a7c1?pvs=4',
+    url: 'https://jelly-olive-ae1.notion.site/Elly-Contents-Thinker-16a49e5159c7804c85f7df6d75dcaae6',
   },
 ];

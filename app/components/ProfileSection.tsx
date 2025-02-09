@@ -15,9 +15,9 @@ export default function ProfileSection({ showProfile }: ProfileSectionProps) {
           : 'opacity-0 translate-y-[200px] pointer-events-none'
       }`}
     >
-      <div className="relative w-[360px] h-[540px]">
+      <div className="relative w-[360px] h-[440px]">
         <Image
-          src="/assets/images/han.png"
+          src="/assets/images/elly.png"
           alt="Profile"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"

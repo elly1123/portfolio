@@ -21,28 +21,26 @@ export default function TypingAnimation({
     >
       {!showProfile && (
         <TypeAnimation
-          sequence={['A Business-driven Developer.', 2000]}
+          sequence={['A Contents Thinker.', 2000]}
           wrapper="span"
           speed={40}
           cursor={false}
-          className={`text-2xl sm:text-2xl md:text-6xl font-extrabold transition-all duration-1000 ${
-            showProfile ? 'text-white' : 'text-black'
-          }`}
+          className={`text-2xl sm:text-2xl md:text-6xl font-extrabold transition-all duration-1000 ${'text-black'}`}
         />
       )}
       {showProfile && (
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl sm:text-3xl md:text-6xl font-extrabold transition-all duration-2000 text-white animate-fade-in">
-            A Business-driven Developer.
+          <h1 className="text-3xl sm:text-3xl md:text-6xl font-extrabold transition-all duration-2000 text-black animate-fade-in">
+            A Contents Thinker.
           </h1>
           <TypeAnimation
             sequence={[
-              '비즈니스를 이해하고, 성장의 기회를 코드로 만드는 개발자, 백건희입니다.',
+              '콘텐츠로 생각하고, 브랜드로 실행하는 마케터, 정다은입니다.',
               1000,
             ]}
             wrapper="span"
             speed={40}
-            className="text-md sm:text-base md:text-2xl font-medium p-2 text-[#F5F5F5] opacity-0 animate-fade-in"
+            className="text-md sm:text-base md:text-2xl font-medium p-2 text-black opacity-0 animate-fade-in"
           />
         </div>
       )}
