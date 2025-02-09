@@ -1,15 +1,15 @@
 'use client';
 
 import {
+  learnMoreItems,
   type LearnMoreItem as LearnMoreItemType,
   type SkillItem as SkillItemType,
-  learnMoreItems,
   skillSets,
 } from '@/app/data/aboutData';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import Image from 'next/image';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 // Lottie 애니메이션 파일들을 동적 import
 import flag from '@/public/assets/animations/flag.json';
 import idea from '@/public/assets/animations/idea.json';
@@ -91,57 +91,6 @@ const AboutSection = () => {
   return (
     <div className="w-full max-w-6xl mx-auto p-8 pt-8 md:pt-24">
       {/* About Me */}
-      <motion.div {...fadeInUp} className="mb-10">
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col items-center w-full max-w-md mx-auto mt-8 space-y-4">
-            <div className="w-full bg-[#2A2A2A] rounded-lg p-6 shadow-lg border border-white/10">
-              <div className="w-40 h-40 relative animate-fade-in mx-auto mb-6">
-                <Image
-                  src="/assets/images/debear.jpeg"
-                  alt="Profile"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  fill
-                  className="object-cover rounded-full border-4 border-white shadow-lg"
-                />
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-gray-400 text-right">이름</div>
-                <div className="text-[#f5f5f5] col-span-2">
-                  백건희(han.baek)
-                </div>
-                <div className="text-gray-400 text-right">생년월일</div>
-                <div className="text-[#f5f5f5] col-span-2">94.05.21</div>
-
-                <div className="text-gray-400 text-right">연락처</div>
-                <div className="text-[#f5f5f5] col-span-2">010-9786-0799</div>
-
-                <div className="text-gray-400 text-right">이메일</div>
-                <div className="text-[#f5f5f5] col-span-2">
-                  han.baek@gmail.com
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Learn More 섹션 */}
-      <motion.div {...fadeInUp} className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">Learn More</h2>
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-6"
-        >
-          {learnMoreItems.map((item, index) => (
-            <motion.div key={index} variants={fadeInUp}>
-              <LearnMoreItem {...item} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
 
       {/* How I Think & Work 섹션 */}
       <motion.div {...fadeInUp} className="mb-10">
@@ -172,6 +121,11 @@ const AboutSection = () => {
                 사용자 관점에서 가치를 만들어내고, 가설을 검증하면서 더 나은
                 방향으로 개선하는 게 제 방식입니다.
               </li>
+              <br />
+              <li>
+                단순한 감이 아닌 데이터와 사용자 피드백을 기반으로 제품의 성과를
+                측정하고 최적의 결정을 내립니다.
+              </li>
             </ul>
           </motion.div>
 
@@ -185,13 +139,19 @@ const AboutSection = () => {
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                고객 중심 사고 - 제품을 개발할 때 내가 원하는 것을 만드는 것이
-                아닌, 고객이 필요로 하는 것을 만듭니다.
+                고객 중심 사고 - 제품을 개발할 때 내가 원하는 것이 아닌, 고객이
+                필요로 하는 것을 만듭니다.
               </li>
               <br />
               <li>
-                협업 중심 커뮤니케이션 - 트레이드오프 관점으로 팀원들과
-                느슨하지만 긴밀하게 협업하여 최적의 의사결정을 내립니다.
+                협업 중심 커뮤니케이션 - 트레이드오프(Trade-off) 관점에서
+                팀원들과 느슨하지만 긴밀하게 협업하여 최적의 의사결정을
+                내립니다.
+              </li>
+              <br />
+              <li>
+                지속 가능한 개발 - 단기적인 결과뿐만 아니라, 장기적으로
+                유지보수하기 쉬운 코드와 구조를 고민합니다.
               </li>
             </ul>
           </motion.div>
@@ -213,6 +173,11 @@ const AboutSection = () => {
               <li>
                 Growth Hacking - 데이터 기반으로 사용자의 행동을 분석하고,
                 제품을 성장시키는 방법을 고민합니다.
+              </li>
+              <br />
+              <li>
+                Lean Development - 최소 비용으로 최대 가치를 제공하기 위해,
+                불필요한 개발을 줄이고 핵심 기능에 집중합니다.
               </li>
             </ul>
           </motion.div>
@@ -236,6 +201,10 @@ const AboutSection = () => {
                 스플리팅)와 백엔드 캐싱 전략을 적용하여 로딩 속도를 단축.
               </li>
               <br />
+              <li>
+                자동화 도입으로 운영 비용 30% 절감 - 반복적인 수작업을
+                자동화하여 개발 및 운영의 효율성을 높이고, 비용을 절감했습니다.
+              </li>
             </ul>
           </motion.div>
         </motion.div>
@@ -272,6 +241,56 @@ const AboutSection = () => {
             </motion.div>
           ))}
         </motion.div>
+      </motion.div>
+      {/* Learn More 섹션 */}
+      <motion.div {...fadeInUp} className="mb-10">
+        <h2 className="text-2xl font-bold mb-4">Learn More</h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-6"
+        >
+          {learnMoreItems.map((item, index) => (
+            <motion.div key={index} variants={fadeInUp}>
+              <LearnMoreItem {...item} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+      <motion.div {...fadeInUp} className="mb-10">
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center w-full max-w-md mx-auto mt-8 space-y-4">
+            <div className="w-full bg-[#2A2A2A] rounded-lg p-6 shadow-lg border border-white/10">
+              <div className="w-40 h-40 relative animate-fade-in mx-auto mb-6">
+                <Image
+                  src="/assets/images/debear.jpeg"
+                  alt="Profile"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  fill
+                  className="object-cover rounded-full border-4 border-white shadow-lg"
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="text-gray-400 text-right">이름</div>
+                <div className="text-[#f5f5f5] col-span-2">
+                  백건희(han.baek)
+                </div>
+                <div className="text-gray-400 text-right">생년월일</div>
+                <div className="text-[#f5f5f5] col-span-2">94.05.21</div>
+
+                <div className="text-gray-400 text-right">연락처</div>
+                <div className="text-[#f5f5f5] col-span-2">010-9786-0799</div>
+
+                <div className="text-gray-400 text-right">이메일</div>
+                <div className="text-[#f5f5f5] col-span-2">
+                  han.baek@gmail.com
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

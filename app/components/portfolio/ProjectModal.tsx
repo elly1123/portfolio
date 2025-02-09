@@ -117,20 +117,22 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           </div>
         </div>
 
-        <div className="h-[calc(100%-160px)] md:h-[calc(100%-140px)] overflow-y-auto p-4 md:p-6 bg-white">
-          {loading ? (
-            <div className="flex items-center justify-center h-full">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
-            </div>
-          ) : notionContent?.blocks ? (
-            <div className="max-w-3xl mx-auto text-black">
-              <NotionRenderer blocks={notionContent.blocks} />
-            </div>
-          ) : (
-            <div className="text-center text-black">
-              콘텐츠를 불러올 수 없습니다.
-            </div>
-          )}
+        <div className="h-[calc(100%-160px)] md:h-[calc(100%-140px)] overflow-y-auto bg-white">
+          <div className="p-6 md:pb-20">
+            {loading ? (
+              <div className="flex items-center justify-center h-full">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
+              </div>
+            ) : notionContent?.blocks ? (
+              <div className="max-w-3xl mx-auto text-black">
+                <NotionRenderer blocks={notionContent.blocks} />
+              </div>
+            ) : (
+              <div className="text-center text-black">
+                콘텐츠를 불러올 수 없습니다.
+              </div>
+            )}
+          </div>
         </div>
       </motion.div>
     </>

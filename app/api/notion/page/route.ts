@@ -18,6 +18,7 @@ export async function GET(request: Request) {
     const blocks = await notion.blocks.children.list({
       block_id: pageId,
     });
+    console.log(blocks);
 
     return NextResponse.json({ blocks: blocks.results });
   } catch (error) {

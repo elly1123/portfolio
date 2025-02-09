@@ -22,7 +22,7 @@ const ThankYouSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Thank You
+          Thank You!
         </motion.h1>
 
         {/* <motion.h2
@@ -40,9 +40,9 @@ const ThankYouSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          좋은 제품을 만들기 위해 지속가능한 성장을 이루어 나가고 있습니다.
+          저는 매일 새로운 점을 찍으며 저만의 여정을 만들어가고 있습니다.
           <br />
-          저와의 여정을 함께 해주셔서 감사드립니다.
+          함께 새로운 점을 이어가며 더 큰 가능성을 그려나가길 기대합니다.
         </motion.p>
 
         {/* 링크 버튼들 */}
@@ -58,13 +58,6 @@ const ThankYouSection = () => {
             className="border-b-2 border-black pb-1 hover:opacity-70 hover:text-black transition-opacity duration-300 text-gray-600 "
           >
             Feedback
-          </Link>
-          <Link
-            target="_blank"
-            href="https://debeletter.stibee.com"
-            className="border-b-2 border-black pb-1 hover:opacity-70 hover:text-black transition-opacity duration-300 text-gray-600 "
-          >
-            Newsletter
           </Link>
         </motion.div>
 

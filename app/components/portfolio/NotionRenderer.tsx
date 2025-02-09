@@ -5,6 +5,7 @@ interface NotionRendererProps {
 }
 
 const NotionRenderer = ({ blocks }: NotionRendererProps) => {
+  console.log(blocks);
   const renderBlock = (block: NotionBlock) => {
     try {
       switch (block.type) {
@@ -128,6 +129,31 @@ const NotionRenderer = ({ blocks }: NotionRendererProps) => {
                 )) || ''}
               </div>
             </div>
+          );
+
+        case 'toggle':
+          return (
+            <details key={block.id} className="mb-4 text-black">
+              <summary className="cursor-pointer hover:bg-gray-100 p-2 rounded">
+                {block.toggle?.rich_text?.map((text: any, index: number) => (
+                  <span
+                    key={index}
+                    className={`${text.annotations?.bold ? 'font-bold' : ''} 
+                               ${text.annotations?.italic ? 'italic' : ''} 
+                               ${
+                                 text.annotations?.underline ? 'underline' : ''
+                               }`}
+                  >
+                    {text.plain_text}
+                  </span>
+                )) || ''}
+              </summary>
+              {block.has_children && (
+                <div className="pl-4 mt-2">
+                  {/* Nested blocks would need to be handled here */}
+                </div>
+              )}
+            </details>
           );
 
         default:
