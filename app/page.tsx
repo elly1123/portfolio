@@ -8,7 +8,7 @@ import PortfolioSection from './components/PortfolioSection';
 import ProfileSection from './components/ProfileSection';
 import ThankYouSection from './components/ThankYouSection';
 import TypingAnimation from './components/TypingAnimation';
-import { badges } from './data/aboutData';
+import { badges } from './data/data';
 import { useAnimationState } from './hooks/useAnimationState';
 
 const Badge = ({ label }: { label: string }) => (

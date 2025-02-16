@@ -5,7 +5,8 @@ import {
   type LearnMoreItem as LearnMoreItemType,
   type SkillItem as SkillItemType,
   skillSets,
-} from '@/app/data/aboutData';
+  thinkWorkData,
+} from '@/app/data/data';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -16,6 +17,7 @@ import idea from '@/public/assets/animations/idea.json';
 import mentorship from '@/public/assets/animations/mentorship.json';
 import mission from '@/public/assets/animations/mission.json';
 import user from '@/public/assets/animations/user.json';
+import React from 'react';
 
 const animationFiles = {
   flag: flag,
@@ -102,115 +104,25 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          {/* Business-Driven Development */}
-          <motion.div
-            variants={fadeInUp}
-            className="bg-[#2A2A2A] p-6 rounded-lg"
-          >
-            <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
-              📌 콘텐츠 중심 사고
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                🔹 맞춤형 콘텐츠 기획 - 뚜렷한 취향의 유저를 타겟팅해 맞춤 코디
-                서비스를 제공.CTR: 12.53% (전체 소재 대비 약 2배 높음)
-              </li>
-              <br />
-              <li>
-                🔹 유저 참여 기반 콘텐츠 확장 - 참여형 기능 도입으로 1D 리텐션:
-                5% → 20% 이상 증가, DAU 3천 → 1만 이상으로 상승
-              </li>
-              <br />
-              <li>
-                🔹 PGC 콘텐츠 운영 - 고퀄리티 콘텐츠 업로드로 클릭률 10.4% 증가,
-                상품 클릭수 100.8% 상승을 기록.{' '}
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Work Approach */}
-          <motion.div
-            variants={fadeInUp}
-            className="bg-[#2A2A2A] p-6 rounded-lg"
-          >
-            <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
-              ⚙️ 업무 방식
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                🔹 고객 중심 사고 - 콘텐츠 제작 시 단순한 트렌드 반영이 아닌,
-                고객 니즈 및 데이터 분석을 기반으로 한 전략적 접근
-              </li>
-              <br />
-              <li>
-                🔹 A/B 테스트 및 데이터 최적화 - 콘텐츠 실험을 통해 가장 높은
-                반응을 이끌어내는 포맷 및 메시지 도출
-              </li>
-              <br />
-              <li>
-                🔹 지속 가능한 콘텐츠 운영 - 일별 20개 이상, 주간 70개 이상의
-                콘텐츠 제작 및 배포, 브랜드 일관성을 유지하면서도 효율적인 운영
-                전략 적용
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Frameworks */}
-          <motion.div
-            variants={fadeInUp}
-            className="bg-[#2A2A2A] p-6 rounded-lg"
-          >
-            <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
-              💡 운영 효율화
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                🔹 셀러 서빙 프로세스 구축 - 운영 100프로였던 기존 운영 대비
-                스타일링 생산성 17% 증가
-              </li>
-              <br />
-              <li>
-                🔹 개인화 추천 데이터베이스 구축 - 유저의 유사한 상품 탐색울
-                위해 정성적/정량적 태그를 적용
-              </li>
-              <br />
-              <li>
-                🔹 지표 모니터링 가이드 수립 - 정기적으로 콘텐츠를 개선 방향할
-                수 있도록 지표기반 리뷰 프로세스를 도입
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Business Impact */}
-          <motion.div
-            variants={fadeInUp}
-            className="bg-[#2A2A2A] p-6 rounded-lg"
-          >
-            <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
-              🚀 데이터 기반 성과 개선
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                🔹 유저 인사이트 기반 콘텐츠 최적화 - 맞춤형 콘텐츠 기획 및 운영
-                방식을 최적화 (인당 콘텐츠 클릭수 최대 27%▲, 기여매출 최대 59%▲)
-              </li>
-              <br />
-              <li>
-                🔹 판매 데이터 활용한 콘텐츠 전략 - 구매 전환율이 높은 상품
-                TOP500 활용(8% → 37.83%)하해 주 평균 15.6백만원의 매출 기여함
-              </li>
-              <br />
-              <li>
-                🔹 콘텐츠 매력도 지표 개선 - 콘텐츠 모니터링을 통해 고퀄리티
-                콘텐츠 분석해 고퀄리티 콘텐츠 비율 최대 28%까지 개선 (39.4%▲)
-              </li>
-              <br />
-              <li>
-                🔹 콘텐츠 매력도 개선 - 유저 데이터 기반 콘텐츠 생성 등을 통해
-                고매력 (CTR 3% 이상) 콘텐츠 비율 증대하여 유저 만족도 향상
-              </li>
-            </ul>
-          </motion.div>
+          {thinkWorkData.map((section, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              className="bg-[#2A2A2A] p-6 rounded-lg"
+            >
+              <h3 className="text-lg font-semibold mb-3 text-[#f5f5f5]">
+                {section.emoji} {section.title}
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-300">
+                {section.items.map((item, itemIndex) => (
+                  <React.Fragment key={itemIndex}>
+                    <li>{item.text}</li>
+                    {itemIndex < section.items.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </motion.div>
       </motion.div>
 
