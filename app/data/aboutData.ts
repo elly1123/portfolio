@@ -69,9 +69,9 @@ export const skillSets: SkillSets = {
 
 export const learnMoreItems: LearnMoreItem[] = [
   {
-    icon: '/assets/icons/notion.svg',
-    text: 'Notion',
-    url: 'https://jelly-olive-ae1.notion.site/Daeun-18c49e5159c7802c8846e29fbfd11119?pvs=4',
+    icon: '/assets/icons/medium.svg',
+    text: 'Resume',
+    url: 'https://jelly-olive-ae1.notion.site/Elly-Contents-Thinker-16a49e5159c7804c85f7df6d75dcaae6',
   },
   {
     icon: '/assets/icons/link.svg',
@@ -84,8 +84,8 @@ export const learnMoreItems: LearnMoreItem[] = [
     url: 'https://www.linkedin.com/in/%EB%8B%A4%EC%9D%80-%EC%A0%95-b08b84343/',
   },
   {
-    icon: '/assets/icons/medium.svg',
-    text: 'Resume',
-    url: 'https://jelly-olive-ae1.notion.site/Elly-Contents-Thinker-16a49e5159c7804c85f7df6d75dcaae6',
+    icon: '/assets/icons/notion.svg',
+    text: 'Notion',
+    url: 'https://jelly-olive-ae1.notion.site/Daeun-18c49e5159c7802c8846e29fbfd11119?pvs=4',
   },
 ];
